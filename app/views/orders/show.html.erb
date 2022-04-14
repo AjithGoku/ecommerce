@@ -1,0 +1,68 @@
+
+<div class="container">
+
+  <div class="row justify-content-center">
+
+    <h4 class="mt-4 mb-4 display-4">Order Details <%= @orders.id %></h4>
+
+  </div>
+
+  <div class="row justify-content-center">
+
+    <table class="table">
+
+      <tbody>
+
+        <tr>
+
+          <th>Order Id:</th>
+
+          <td><%= @orders.order_id %></td>
+
+        </tr>
+
+        <tr>
+
+          <th>Product Id:</th>
+
+          <td><%= @orders.product_id %></td>
+
+        </tr>
+        <tr>
+
+        <th>Actual Price:</th>
+
+        <td><%= @orders.actual_price %></td>
+
+      </tr>
+
+      <tr>
+
+        <th>Discount Price:</th>
+
+        <td><%= @orders.discount_price %></td>
+
+      </tr>
+      <tr>
+
+      <th>Final Price:</th>
+
+      <td><%= @orders.final_price %></td>
+
+    </tr>
+
+    <tr>
+
+      <th>Quantity :</th>
+
+      <td><%= @orders.quantity %></td>
+
+    </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
+

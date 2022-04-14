@@ -1,0 +1,68 @@
+<div class="container">
+
+  <div class="row justify-content-center">
+
+    <h4 class="mt-4 display-4">Listing orders</h4>
+
+  </div>
+
+  <%= link_to 'Create order', new_order_path %>
+
+
+
+  <% if @orders.present? %>
+
+    <div class="row justify-content-center">
+
+      <table class="table table-bordered">
+
+        <thead>
+
+          <tr>
+
+            <th scope="col">Customer Id</th>
+
+            <th scope="col">Total Price</th>
+
+            <th scope="col" colspan="3">Order Status</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <% @orders.each do |order| %>
+
+            <tr>
+
+              <td><%= order.customer_id %></td>
+
+              <td><%= order.total_price%></td>
+
+              <td><%= order.orderstatus.order_status%></td>  
+              <td><%= link_to 'Show', order_path(order.id) %></td> 
+
+            </tr>
+
+          <% end %>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  <% else %>
+
+    <div class="p-3 mb-2 bg-light text-dark">
+
+      <span class="text-info font-weight-bold">Welcome! </span>
+
+      Create your first order
+
+    </div>
+
+  <% end %>
+
+</div>
