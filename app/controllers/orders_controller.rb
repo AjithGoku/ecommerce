@@ -10,7 +10,8 @@ def index
 
   def show
 
-    @orders = OrderItem.find(params[:id])
+    @orders = Order.find(params[:id])
+    @orderitem = OrderItem.where("order_id = ?", params[:id])
 
   end
 
