@@ -1,0 +1,41 @@
+<!DOCTYPE html>   
+<html>  
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<h1>Product Category</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>   
+      <th>Name</th>    
+      <th>Actions</th>   
+    </tr>  
+  </thead>
+
+  <tbody>
+    <% @product_categories.each do |productcategory| %>
+      <tr>   
+            <td><%= productcategory.name %></td>    
+               <div>   
+               <td>   
+                <%= link_to 'Show', product_category_path(productcategory) %>  
+                <%= link_to 'Edit', edit_product_category_path(productcategory) %>
+                <%= link_to 'Delete', product_category_path(productcategory), method: :delete %>
+              </div>   
+            </td>   
+          </tr>   
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Product Category', new_product_category_path %><br>
+<%= link_to 'Back', root_path %>
