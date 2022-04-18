@@ -5,7 +5,7 @@
     <h4 class="mt-4 display-4">Listing orders</h4>
 
   </div>
-
+  <%= link_to 'Create new order', new_order_path %>
   <% if @orders.present? %>
 
     <div class="row justify-content-center">
@@ -32,14 +32,16 @@
 
             <tr>
 
-              <td><%= order.customer_id %></td>
+              <td><%= order.user.first_name %></td>
 
               <td><%= order.total_price%></td>
               
               <td><%= order.orderstatus.order_status%></td>  
 
-              <td><%= link_to 'Show', order_path(order.id), data: { confirm: 'Are you sure?' } %></td> 
-             
+              <td><%= link_to 'Show', order_path(order.id) %></td> 
+
+              <td><%= link_to 'Edit', edit_order_path(order.id) %></td>
+
               <td><%= button_to "Delete", order_path(order.id), method: :delete, class:"btn btn-danger" ,form: { data: { turbo_confirm: "Are you sure you want to delete?" } }%></td>
         
             </tr>
