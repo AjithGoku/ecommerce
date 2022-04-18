@@ -10,4 +10,8 @@ Rails.application.routes.draw do
   root to: "home#index"
   get 'home/index'
   resources :users
+  resources :products
+  resources :stock_statuses
+  resources :discounts
+  resources :product_categories
 end
