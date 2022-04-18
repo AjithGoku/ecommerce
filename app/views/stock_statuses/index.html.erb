@@ -1,46 +1,41 @@
 <!DOCTYPE html>   
 <html>  
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-<div class="container">
-<p id="notice"><%= notice %></p>
-
-<h1>Stock Status</h1>
-
-<table class="table table-striped">
-  <thead>
-    <tr>   
-      <th>Status</th>    
-      <th>Actions</th>   
-    </tr>  
-  </thead>
-
-  <tbody>
-    <% @stock_statuses.each do |stockstatus| %>
-      <tr>   
-            <td><%= stockstatus.status %></td>    
-               <div>   
-               <td>   
-                <%= link_to 'Show', stock_status_path(stockstatus) %>  
-                <%= link_to 'Edit', edit_stock_status_path(stockstatus) %>
-                <%= link_to 'Delete', stock_status_path(stockstatus), method: :delete %>
-              </div>   
-            </td>   
-          </tr>   
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Stock Status', new_stock_status_path %><br>
-<%= link_to 'Back', root_path %>
-</div>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <p id="notice"><%= notice %></p>
+      <h1>Stock Status</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>   
+            <th>Status</th>    
+            <th>Actions</th>   
+          </tr>  
+        </thead>
+        <tbody>
+          <% @stock_statuses.each do |stockstatus| %>
+            <tr>   
+                  <td><%= stockstatus.status %></td>    
+                    <div>   
+                    <td>   
+                      <%= link_to 'Show', stock_status_path(stockstatus) %>  
+                      <%= link_to 'Edit', edit_stock_status_path(stockstatus) %>
+                      <%= link_to 'Delete', stock_status_path(stockstatus), method: :delete %>
+                    </div>   
+                  </td>   
+                </tr>   
+          <% end %>
+        </tbody>
+      </table>
+      <br>
+      <%= link_to 'New Stock Status', new_stock_status_path %><br>
+      <%= link_to 'Back', root_path %>
+    </div>
+  </body>
 </html>
