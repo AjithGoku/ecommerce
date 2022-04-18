@@ -4,15 +4,15 @@ class ProductCategoriesController < ApplicationController
     end
 
     def show
-        @product_categories = ProductCategory.find(params[:id])
+        @product_category = ProductCategory.find(params[:id])
     end
 
     def new   
-       @product_categories = ProductCategory.new   
+       @product_category = ProductCategory.new   
     end  
 
     def edit
-        @product_categories = ProductCategory.find(params[:id])
+        @product_category = ProductCategory.find(params[:id])
     end
 
     def update
