@@ -4,15 +4,15 @@ class ProductsController < ApplicationController
     end
 
     def show
-        @products = Product.find(params[:id])
+        @product = Product.find(params[:id])
     end
 
     def new   
-       @products = Product.new   
+       @product = Product.new   
     end  
 
     def edit
-        @products = Product.find(params[:id])
+        @product = Product.find(params[:id])
     end
 
     def update
@@ -44,8 +44,3 @@ class ProductsController < ApplicationController
         params.require(:product).permit(:name, :description, :price, :image_url, :discount_id, :stock_status_id, :product_category_id)
     end
  end
-
-
-  
-    
-
