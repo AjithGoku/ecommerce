@@ -48,6 +48,9 @@ gem 'devise'
 # rails_best_practices is a code metric tool to check the quality of Rails code.
 gem "rails_best_practices"
 
+# CanCanCan is an authorization library for Ruby and Ruby on Rails which restricts what resources a given user is allowed to access.
+gem 'cancancan'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
