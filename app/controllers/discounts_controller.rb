@@ -4,15 +4,15 @@ class DiscountsController < ApplicationController
     end
 
     def show
-        @discounts = Discount.find(params[:id])
+        @discount = Discount.find(params[:id])
     end
 
     def new   
-       @discounts = Discount.new   
+       @discount = Discount.new   
     end  
 
     def edit
-        @discounts = Discount.find(params[:id])
+        @discount = Discount.find(params[:id])
     end
 
     def update
