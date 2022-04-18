@@ -19,6 +19,11 @@
         <%= form.label :name %>
         <%= form.text_field :name %>
       </div>
+
+      <div class="form-group">
+        <%= form.label :image_url %>
+        <%= form.text_field :image_url %>
+      </div>
       
       <div class="form-group">
         <%= form.label :description %>
@@ -29,6 +34,21 @@
         <%= form.label :price %>
         <%= form.number_field :price, step: :any %>
       </div>
+
+      <div class="form-group">
+      <%= form.label :discount %>
+      <%= form.select :discount_id, Discount.all.collect {|u| [u.percentage, u.id]}, {}, class: "select" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :product_category %>
+      <%= form.select :product_category_id, ProductCategory.all.collect {|u| [u.name, u.id]}, {}, class: "select" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :stock_status %>
+      <%= form.select :stock_status_id, StockStatus.all.collect {|u| [u.status, u.id]}, {}, class: "select" %>
+    </div>
 
       <div class="form-group">
         <%= form.submit class: 'btn btn-primary' %>

@@ -18,7 +18,10 @@
     <tr>   
       <th>Name</th>   
       <th>Price</th>   
-      <th>Description</th>   
+      <th>Description</th> 
+      <th>Product Category</th>
+      <th>Stock Status</th>   
+      <th>Discount</th>   
       <th>Actions</th>   
     </tr>  
   </thead>
@@ -28,12 +31,15 @@
       <tr>   
             <td><%= product.name %></td>   
             <td><%= product.price %></td>   
-            <td><%= truncate(product.description, :length => 75) %></td>   
+            <td><%= truncate(product.description, :length => 75) %></td>
+            <td><%= product.product_category.name if product.product_category.present? %></td>
+            <td><%= product.stock_status.status if product.stock_status.present? %></td>
+            <td><%= product.discount.percentage if product.discount.present? %></td>      
                <div>   
                <td>   
                 <%= link_to 'Show', product_path(product) %>  
                 <%= link_to 'Edit', edit_product_path(product) %>
-                <%= link_to 'Delete', product_path(product), method: :delete %>
+                <%= link_to 'Delete', product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %>
               </div>   
             </td>   
           </tr>   

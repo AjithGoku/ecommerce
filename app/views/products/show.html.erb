@@ -12,19 +12,40 @@
         <h3>Product Details</h3>   
        
             <div>   
-              <label>Product Name</label>   
+              <label>Product Name: </label>   
               <%= @products.name %>   
             </div>   
   
             <div>   
-              <label>Price</label>   
+              <label>Price: </label>   
               <%= @products.price %>   
             </div>   
             
             <div>   
-              <label>Description</label>   
+              <label>Description: </label>   
               <%= @products.description %>   
             </div>   
+
+            <div>   
+              <label>Image URL: </label>   
+              <%= @products.image_url %>   
+            </div>  
+
+            <div>   
+              <label>Discount: </label>   
+              <%= @products.discount.percentage %>   
+            </div>  
+
+            <div>   
+              <label>Product Category: </label>   
+              <%= @products.product_category.name %>   
+            </div> 
+            
+            <div>   
+              <label>Stock Status: </label>   
+              <%= @products.stock_status.status %>   
+            </div>  
+
       <br>   
       <div>   
         <%= link_to 'Back', { controller: 'products', action: 'index'} %>   
