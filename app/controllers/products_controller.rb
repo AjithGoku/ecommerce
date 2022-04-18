@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
         product = Product.find(params[:id])
         product.update(product_params)
         respond_to do |format|
-            format.html { redirect_to products_url, notice: "Product was successfully updated." }  
+            format.html { redirect_to products_url, notice: "Product was successfully updated." }
         end
     end
     
@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
         product = Product.new(product_params)
         product.save
         respond_to do |format|
-            format.html { redirect_to products_url, notice: "Product was successfully created." }  
+            format.html { redirect_to products_url, notice: "Product was successfully created." }
         end
     end
 
@@ -35,7 +35,7 @@ class ProductsController < ApplicationController
       product = Product.find(params[:id])
       product.destroy
       respond_to do |format|
-        format.html { redirect_to products_url, notice: "Product was successfully destroyed." }  
+        format.html { redirect_to products_url, notice: "Product was successfully destroyed." }
       end
     end
 

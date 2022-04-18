@@ -1,46 +1,32 @@
-<!DOCTYPE html>   
-<html>  
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <div class="container">
-      <p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-      <h1>Product Discounts</h1>
+  <h1>Product Discounts</h1>
 
-      <table class="table table-striped">
-        <thead>
-          <tr>   
-            <th>Percentage</th>   
-            <th>Actions</th>   
-          </tr>  
-        </thead>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Percentage</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
 
-        <tbody>
-          <% @discounts.each do |discount| %>
-            <tr>   
-                  <td><%= discount.percentage %></td>   
-                    <div>   
-                    <td>   
-                      <%= link_to 'Show', discount_path(discount) %>  
-                      <%= link_to 'Edit', edit_discount_path(discount) %>
-                      <%= link_to 'Delete', discount_path(discount), method: :delete %>
-                    </div>   
-                  </td>   
-                </tr>   
-          <% end %>
-        </tbody>
-      </table>
+    <tbody>
+      <% @discounts.each do |discount| %>
+      <tr>
+        <td><%= discount.percentage %></td>
+        <td>
+          <%= link_to 'Show', discount_path(discount), class:"btn btn-outline-primary btn-sm" %>
+          <%= link_to 'Edit', edit_discount_path(discount), class:"btn btn-outline-warning btn-sm" %>
+          <%= button_to 'Delete', discount_path(discount), method: :delete, class:"btn btn-outline-danger btn-sm" %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-      <br>
+  <br>
 
-      <%= link_to 'New Product Discount', new_discount_path %><br>
-      <%= link_to 'Back', root_path %>
-    </div>
-  </body>
-</html>
+  <%= link_to 'New Product Discount', new_discount_path %><br><br>
+  <%= link_to 'Back', products_path, class:"btn btn-primary btn-sm" %>
+</div>
