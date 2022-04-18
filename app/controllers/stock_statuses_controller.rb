@@ -5,15 +5,15 @@ class StockStatusesController < ApplicationController
     end
 
     def show
-        @stock_statuses = StockStatus.find(params[:id])
+        @stock_status = StockStatus.find(params[:id])
     end
 
     def new   
-       @stock_statuses = StockStatus.new   
+       @stock_status = StockStatus.new   
     end  
 
     def edit
-        @stock_statuses = StockStatus.find(params[:id])
+        @stock_status = StockStatus.find(params[:id])
     end
 
     def update
