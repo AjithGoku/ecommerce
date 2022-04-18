@@ -9,56 +9,49 @@
   <div class="row justify-content-center">
 
     <table class="table">
-    <thead>
 
-    <tr>
+      <thead>
 
-      <th scope="col">Order Id</th>
+        <tr>
 
-      <th scope="col">Product</th>
+          <th scope="col">Order Id</th>
 
-      <th scope="col">Actual price</th>
-      <th scope="col">Discount Price</th>
+          <th scope="col">Product</th>
 
-      <th scope="col">Final Price</th>
+          <th scope="col">Actual price</th>
 
-      <th scope="col">Quantity</th>
-      
+          <th scope="col">Discount Price</th>
 
-    </tr>
+          <th scope="col">Final Price</th>
 
-  </thead>
+          <th scope="col">Quantity</th>
+
+        </tr>
+
+      </thead>
+
       <tbody>
       <% @orderitem.each do |orderitem| %>
         <tr>
 
-
           <td><%= orderitem.order_id %></td>
-
-       
 
           <td><%= orderitem.product_id %></td>
 
-       
+          <td><%= orderitem.actual_price %></td>
 
-        <td><%= orderitem.actual_price %></td>
-
-      
-
-        <td><%= orderitem.discount_price %></td>
-
+          <td><%= orderitem.discount_price %></td>
     
-      <td><%= orderitem.final_price %></td>
+          <td><%= orderitem.final_price %></td>
 
-   
+          <td><%= orderitem.quantity %></td>
 
-      <td><%= orderitem.quantity %></td>
-
-    </tr>
-    <% end %>
+        </tr>
+      <% end %>
       </tbody>
 
     </table>
+    
     <%= link_to 'Back to Main Page', orders_index_path %>
 
   </div>
