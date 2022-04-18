@@ -33,8 +33,6 @@ class OrdersController < ApplicationController
 
 #To destroy the specified order
   def destroy
-    @orderitem = OrderItem.where("order_id = ?", params[:id])
-    @orderitem.destroy_all
     @order = Order.find(params[:id])
     @order.destroy
     respond_to do |format|
