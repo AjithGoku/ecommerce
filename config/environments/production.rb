@@ -78,6 +78,10 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+  # Default default_url_options appropriate for a production environment
+  # In production, :host should be set to the actual host of your application.
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
   # Use a different logger for distributed setups.
   # require "syslog/logger"
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
