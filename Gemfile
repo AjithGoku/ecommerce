@@ -45,6 +45,9 @@ gem "bootsnap", require: false
 # To use authentication and authorization
 gem 'devise'
 
+# rails_best_practices is a code metric tool to check the quality of Rails code.
+gem "rails_best_practices"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
