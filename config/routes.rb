@@ -10,6 +10,17 @@ Rails.application.routes.draw do
   root to: "home#index"
   get 'home/index'
   resources :users
+  get 'orders/index', to: 'orders#index'
+
+  get 'orders/show', to: 'orders#show'
+
+  get 'orders/new', to: 'orders#new'
+
+  get 'orders/edit', to: 'orders#edit'
+
+  get 'orders/destroy', to: 'orders#destroy'
+
+  resources :orders
   resources :products
   resources :stock_statuses
   resources :discounts

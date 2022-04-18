@@ -1,0 +1,60 @@
+<div class="container">
+
+  <div class="row justify-content-center">
+
+    <h4 class="mt-4 mb-4 display-4"> Details for Order # <%= @orders.id %></h4>
+
+  </div>
+
+  <div class="row justify-content-center">
+
+    <table class="table">
+
+      <thead>
+
+        <tr>
+
+          <th scope="col">Order Id</th>
+
+          <th scope="col">Product</th>
+
+          <th scope="col">Actual price</th>
+
+          <th scope="col">Discount Price</th>
+
+          <th scope="col">Final Price</th>
+
+          <th scope="col">Quantity</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+      <% @orderitem.each do |orderitem| %>
+        <tr>
+
+          <td><%= orderitem.order_id %></td>
+
+          <td><%= orderitem.product_id %></td>
+
+          <td><%= orderitem.actual_price %></td>
+
+          <td><%= orderitem.discount_price %></td>
+                               
+          <td><%= orderitem.final_price %></td>
+
+          <td><%= orderitem.quantity %></td>
+
+        </tr>
+      <% end %>
+      </tbody>
+
+    </table>
+
+    <%= link_to 'Back to Main Page', orders_index_path %>
+
+  </div>
+
+</div>
+
