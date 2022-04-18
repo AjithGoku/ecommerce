@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema[7.0].define(version: 2022_04_15_064807) do
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -33,35 +33,28 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_15_064807) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.decimal "price"
+    t.string "image_url"
+    t.integer "discount_id"
+    t.integer "product_category_id"
+    t.integer "stock_status_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "discounts", force: :cascade do |t|
     t.decimal "percentage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "product_categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "products", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.decimal "price"
-    t.string "image_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "discount_id"
-    t.integer "product_category_id"
-    t.integer "stock_status_id"
-    t.index ["discount_id"], name: "index_products_on_discount_id"
-    t.index ["product_category_id"], name: "index_products_on_product_category_id"
-    t.index ["stock_status_id"], name: "index_products_on_stock_status_id"
-  end
-
-  create_table "stock_statuses", force: :cascade do |t|
-    t.string "status"
+  create_table "orders", force: :cascade do |t|
+    t.integer "customer_id"
+    t.float "total_price"
+    t.integer "orderstatus_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -77,15 +70,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_15_064807) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.integer "customer_id"
-    t.float "total_price"
-    t.integer "status_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "orderstatus_id"
-    t.index ["orderstatus_id"], name: "index_orders_on_orderstatus_id"
-  end
 
   create_table "orderstatuses", force: :cascade do |t|
     t.string "order_status"
@@ -93,5 +77,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_15_064807) do
     t.datetime "updated_at", null: false
   end
 
-end
+  create_table "product_categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
+  create_table "stock_statuses", force: :cascade do |t|
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+end
