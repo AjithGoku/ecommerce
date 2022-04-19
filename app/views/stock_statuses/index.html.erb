@@ -8,16 +8,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @stock_statuses.each do |stockstatus| %>
-      <tr>
-        <td><%= stockstatus.status %></td>
-        <td>
-          <%= link_to 'Show', stock_status_path(stockstatus), class:"btn btn-outline-primary btn-sm" %>
-          <%= link_to 'Edit', edit_stock_status_path(stockstatus), class:"btn btn-outline-warning btn-sm" %>
-          <%= button_to 'Delete', stock_status_path(stockstatus), method: :delete, class:"btn btn-outline-danger btn-sm" %>
-        </td>
-      </tr>
-      <% end %>
+      <%= render 'stock_statuses/actions' %>
     </tbody>
   </table>
   <br>

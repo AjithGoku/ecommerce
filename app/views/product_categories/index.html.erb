@@ -10,16 +10,7 @@
     </thead>
 
     <tbody>
-      <% @product_categories.each do |productcategory| %>
-      <tr>
-        <td><%= productcategory.name %></td>
-        <td>
-          <%= link_to 'Show', product_category_path(productcategory), class:"btn btn-outline-primary btn-sm" %>
-          <%= link_to 'Edit', edit_product_category_path(productcategory), class:"btn btn-outline-warning btn-sm" %>
-          <%= button_to 'Delete', product_category_path(productcategory), method: :delete, class:"btn btn-outline-danger btn-sm" %>
-        </td>
-      </tr>
-      <% end %>
+      <%= render 'product_categories/actions' %>
     </tbody>
   </table>
 
