@@ -1,39 +1,55 @@
 <div class="container">
+
   <div class="row justify-content-center">
+
     <h4 class="mt-4 mb-4 display-4">New Order</h4>
+
   </div>
+
   <div class="row justify-content-center">
-    <%= form_with scope: :order, url: new_order_path, local: true do |form| %>
+    <div class="row">
+    <div class="col-3">
+    <%= form_with scope: :order, url: orders_path, local: true do |form| %>
+
       <div class="form-group">
-        <%= form.label :order_id %>
-        <%= form.text_field :order_id, class: 'form-control' %>
+
+        <%= form.label :user_id %>
+
+        <%= form.text_area :user_id, value: current_user.id ,class: 'form-control' %>
+
       </div>
+
       <div class="form-group">
-      <%= form.label :product %>
-      <%= form.text_area :product, class: 'form-control' %>
+
+      <%= form.label :total_price %>
+
+      <%= form.text_area :total_price, class: 'form-control' %>
+
     </div>
-      <div class="form-group">
-        <%= form.label :Actual %>
-        <%= form.text_area :actual, class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= form.label :discount_price %>
-        <%= form.text_field :discount_price, class: 'form-control' %>
-      </div>
+ <br/>
+    <div class="form-group">
+
+      <%= form.label :orderstatus %>
+
+      <%= form.select :orderstatus_id, Orderstatus.all.collect {|u| [u.order_status, u.id]}, {}, class: "select" %>
+
+    </div>
+    <br/>
+
+     
 
       <div class="form-group">
-        <%= form.label :final_price %>
-        <%= form.text_field :final_price, class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= form.label :Quantity %>
-        <%= form.text_area :quantity, class: 'form-control' %>
-      </div>
 
-      <div class="form-group">
         <%= form.submit class: 'form-control btn-primary' %>
 
       </div>
+      <div>   
+            <%= link_to 'Back', { controller: 'orders', action: 'index'} %>   
+        </div> 
+
     <% end %>
+</div>
   </div>
+   </div>
+
 </div>

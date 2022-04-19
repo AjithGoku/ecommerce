@@ -14,7 +14,8 @@ Rails.application.routes.draw do
 
   get 'orders/show', to: 'orders#show'
 
-  get 'orders/new', to: 'orders#new'
+  #get 'orders/new', to: 'orders#new'
+  #get 'orderitem/new', to: 'orderitem#new'
 
   get 'orders/edit', to: 'orders#edit'
 

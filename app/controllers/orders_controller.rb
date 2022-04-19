@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
   end
 
   def new
-
+  @order = Order.new
   end
 
   def edit
@@ -24,13 +24,19 @@ class OrdersController < ApplicationController
   def update
     order = Order.find(params[:id])
     order.update(order_params)
-    redirect_to root_path
+    respond_to do |format|
+      format.html { redirect_to orders_url, notice: "order was successfully created." }  
+  end
+    #redirect_to root_path
   end
 
   def create
-    order = Order.new(employee_params)
+    order = Order.new(order_params)
     order.save
-    redirect_to root_path
+    respond_to do |format|
+      format.html { redirect_to orders_url, notice: "Order was successfully created." }  
+  end
+    #redirect_to root_path
   end
 
 #To destroy the specified order
@@ -45,7 +51,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-      params.require(:order).permit(:name, :position)
+      params.require(:order).permit(:user_id, :total_price, :orderstatus_id)
   end
 
 end
