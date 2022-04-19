@@ -6,11 +6,14 @@
         <th>Name</th>
         <th>Price</th>
         <th>Description</th>
-        
         <th>Stock Status</th>
         <th>Discount(in %)</th>
+        <% if can? :manage, @product %>
         <th>Actions</th>
-        <th colspan="7"></th>
+        <th colspan="6"></th>
+        <% else %>
+        <th colspan="5"></th>
+        <% end %>
       </tr>
     </thead>
     <tbody>
@@ -18,8 +21,10 @@
     </tbody>
   </table>
   <br>
+  <% if can? :manage, @product %>
   <%= link_to 'New Product', new_product_path %><br>
   <%= link_to 'Product Discounts', discounts_path %><br>
   <%= link_to 'Product Categories', product_categories_path %><br>
   <%= link_to 'Stock Statuses', stock_statuses_path %>
+  <% end %>
 </div>

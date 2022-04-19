@@ -1,22 +1,27 @@
 class ProductCategoriesController < ApplicationController
     def index
         @product_categories = ProductCategory.all
+        authorize! :create, @productcategory
     end
 
     def show
         @product_category = ProductCategory.find(params[:id])
+        authorize! :create, @productcategory
     end
 
     def new   
-       @product_category = ProductCategory.new   
+       @product_category = ProductCategory.new
+       authorize! :create, @productcategory
     end  
 
     def edit
         @product_category = ProductCategory.find(params[:id])
+        authorize! :create, @productcategory
     end
 
     def update
         productcategory = ProductCategory.find(params[:id])
+        authorize! :create, @productcategory
         productcategory.update(productcategory_params)
         respond_to do |format|
             format.html { redirect_to product_categories_path, notice: "Product Category was updated sucessfully." }  
@@ -25,6 +30,7 @@ class ProductCategoriesController < ApplicationController
     
     def create
         productcategory = ProductCategory.new(productcategory_params)
+        authorize! :create, @productcategory
         productcategory.save
         respond_to do |format|
             format.html { redirect_to product_categories_path, notice: "Product Category was created sucessfully." }  
@@ -33,6 +39,7 @@ class ProductCategoriesController < ApplicationController
 
     def destroy
       productcategory = ProductCategory.find(params[:id])
+      authorize! :create, @productcategory
       productcategory.destroy
       respond_to do |format|
         format.html { redirect_to product_categories_path, notice: "Product Category was successfully destroyed." }  
