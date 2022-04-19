@@ -12,16 +12,7 @@
     </thead>
 
     <tbody>
-      <% @discounts.each do |discount| %>
-      <tr>
-        <td><%= discount.percentage %></td>
-        <td>
-          <%= link_to 'Show', discount_path(discount), class:"btn btn-outline-primary btn-sm" %>
-          <%= link_to 'Edit', edit_discount_path(discount), class:"btn btn-outline-warning btn-sm" %>
-          <%= button_to 'Delete', discount_path(discount), method: :delete, class:"btn btn-outline-danger btn-sm" %>
-        </td>
-      </tr>
-      <% end %>
+      <%= render 'discounts/actions' %>
     </tbody>
   </table>
 
