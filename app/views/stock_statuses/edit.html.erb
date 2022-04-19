@@ -1,31 +1,19 @@
-<!DOCTYPE html>   
-<html>  
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <div class="container">
-      <div class="row justify-content-center">
-        <h4 class="mt-4 mb-4 display-4">Edit Stock Status</h4>
-      </div>
-      <div class="row justify-content-center">
-        <%= form_with(model: @stock_status, local: true) do |form| %>
-          <div class="form-group">
-            <%= form.label :status %>
-            <%= form.text_field :status %>
-          </div>
-
-          <div class="form-group">
-            <%= form.submit class: 'btn btn-primary' %>
-          </div>
-        <% end %>
-      </div>
+<div class="container">
+  <div class="row justify-content-center">
+    <h4 class="mt-4 mb-4 display-4">Edit Stock Status</h4>
+  </div>
+  <div class="row justify-content-center">
+    <%= form_with(model: @stock_status, local: true) do |form| %>
+    <div class="form-group">
+      <%= form.label :status %>
+      <%= form.text_field :status %>
     </div>
-    <%= link_to 'Show', @stock_statuses %> |
-    <%= link_to 'Back', stock_statuses_path %>
-  </body>
-</html>
+
+    <div class="form-group">
+      <%= form.submit class: 'btn btn-primary' %>
+    </div>
+    <% end %>
+  </div>
+</div>
+<%= link_to 'Show', stock_status_path, class:"btn btn-outline-primary btn-sm" %> |
+<%= link_to 'Back', stock_statuses_path, class:"btn btn-primary btn-sm" %>
