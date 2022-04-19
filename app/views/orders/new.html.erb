@@ -1,55 +1,58 @@
-<div class="container">
+<div class="mx-auto bg-white text-dark" style="width: 50%">
+  <div class="card-body p-md-8 mx-md-3">
+    <div class="container">
 
-  <div class="row justify-content-center">
+      <div class="row justify-content-center">
 
-    <h4 class="mt-4 mb-4 display-4">New Order</h4>
-
-  </div>
-
-  <div class="row justify-content-center">
-    <div class="row">
-    <div class="col-3">
-    <%= form_with(model: @order, local: true) do |form| %>
-
-      <div class="form-group">
-
-        <%= form.label :user_id %>
-
-        <%= form.text_area :user_id, value: current_user.id ,class: 'form-control' %>
+        <h4 class="mt-4 mb-4 display-4">New Order</h4>
 
       </div>
 
-      <div class="form-group">
+      <div class="row justify-content-center">
+        <div class="row">
+          <div>
+            <%= form_with(model: @order, local: true) do |form| %>
 
-      <%= form.label :total_price %>
+              <div class="form-group">
 
-      <%= form.number_field :total_price, class: 'form-control' %>
+                <%= form.label :user_id %>
 
-    </div>
- <br/>
-    <div class="form-group">
+                  <%= form.text_field :user_id, value: current_user.id ,class: 'form-control' %>
 
-      <%= form.label :orderstatus %>
+              </div>
 
-      <%= form.select :orderstatus_id, Orderstatus.all.collect {|u| [u.order_status, u.id]}, {}, class: "select" %>
+              <div class="form-group">
 
-    </div>
-    <br/>
+                <%= form.label :total_price %>
 
-     
+                  <%= form.number_field :total_price, class: 'form-control' %>
 
-      <div class="form-group">
+              </div>
+              <br />
+              <div class="form-group">
 
-        <%= form.submit class: 'form-control btn-primary' %>
+                <%= form.label :orderstatus %>
 
+                  <%= form.select :orderstatus_id, Orderstatus.all.collect {|u| [u.order_status, u.id]}, {},
+                    class: "select" %>
+
+              </div>
+              <br />
+
+
+
+              <div class="form-group">
+
+                <%= form.submit class:"form-control btn-primary btn-block fa-lg gradient-custom-2 mb-3" %>
+
+              </div>
+              <div>
+                <%= link_to 'Back' , :back, class:"btn btn-outline-danger" %>
+              </div>
+
+              <% end %>
+          </div>
+        </div>
       </div>
-      <div>   
-            <%= link_to 'Back', { controller: 'orders', action: 'index'} %>   
-        </div> 
 
-    <% end %>
-</div>
-  </div>
-   </div>
-
-</div>
+    </div>

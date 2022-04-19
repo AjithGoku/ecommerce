@@ -1,4 +1,4 @@
-class OrderItemController < ApplicationController
+class OrderItemsController < ApplicationController
       #Display all the orders
       def index
         
@@ -49,6 +49,6 @@ class OrderItemController < ApplicationController
       private
     
       def orderitem_params
-          params.require(:order).permit(:order_id,:product_id,:actual_price,:discount_price,:final_price, :quantity)
+          params.require(:orderitem).permit(:order_id,:product_id,:actual_price,:discount_price,:final_price, :quantity)
       end
 end
