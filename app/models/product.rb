@@ -5,4 +5,5 @@ class Product < ApplicationRecord
     belongs_to :product_category
     belongs_to :stock_status
     belongs_to :discount
+    has_many :order_item
 end

@@ -2,13 +2,15 @@ class OrdersController < ApplicationController
 
 #Display all the orders
   def index
-    @orders = Order.all
+    @orders = Order.where("user_id= ?", current_user.id)
+
   end
 
 #show the orderitems for specific order
   def show
     @orders = Order.find(params[:id])
     @orderitem = OrderItem.where("order_id = ?", params[:id])
+
   end
 
   def new
