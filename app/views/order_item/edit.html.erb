@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row justify-content-center">
-    <h4 class="mt-4 mb-4 display-4">New Order</h4>
+    <h4 class="mt-4 mb-4 display-4">Edit  Order</h4>
   </div>
   <div class="row justify-content-center">
-    <%= form_with scope: :order, url: new_order_path, local: true do |form| %>
+        <%= form_with(model: @orderitem, local: true) do |form| %>
       <div class="form-group">
         <%= form.label :order_id %>
         <%= form.text_field :order_id, class: 'form-control' %>
@@ -32,8 +32,10 @@
 
       <div class="form-group">
         <%= form.submit class: 'form-control btn-primary' %>
-
       </div>
     <% end %>
+    <%= link_to 'Back to Main Page', order_path %>
+
   </div>
+
 </div>

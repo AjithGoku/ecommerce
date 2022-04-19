@@ -45,12 +45,14 @@
           <td><%= orderitem.final_price %></td>
 
           <td><%= orderitem.quantity %></td>
+          <td><%= button_to "Delete", order_item_path(orderitem.id), method: :delete, class:"btn btn-danger" ,form: { data: { turbo_confirm: "Are you sure you want to delete?" } }%></td>
 
         </tr>
       <% end %>
       </tbody>
 
     </table>
+   <%= link_to 'Create new orderitem', new_order_item_path %>
 
     <%= link_to 'Back to Main Page', orders_index_path %>
 

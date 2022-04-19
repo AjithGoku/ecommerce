@@ -18,14 +18,14 @@ class OrdersController < ApplicationController
   end
 
   def edit
-    @orders = Order.find(params[:id])
+    @order = Order.find(params[:id])
   end
 
   def update
     order = Order.find(params[:id])
     order.update(order_params)
     respond_to do |format|
-      format.html { redirect_to orders_url, notice: "order was successfully created." }  
+      format.html { redirect_to orders_url, notice: "order was successfully updated." }  
   end
     #redirect_to root_path
   end

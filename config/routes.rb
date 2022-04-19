@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'orders/destroy', to: 'orders#destroy'
 
   resources :orders
+  resources :order_item
   resources :products
   resources :stock_statuses
   resources :discounts
