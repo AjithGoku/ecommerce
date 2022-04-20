@@ -12,25 +12,25 @@
   </div>
   <% if @orders.present? %>
 
-    <div class="row justify-content-center">
+  <div class="row justify-content-center">
 
-      <table class="table table-bordered">
+    <table class="table table-bordered">
 
-        <thead>
+      <thead>
 
-          <tr>
+        <tr>
 
             <th scope="col">Customer Name</th>
 
-            <th scope="col">Total Price</th>
+          <th scope="col">Total Price</th>
 
-            <th scope="col" colspan="3">Order Status</th>
+          <th scope="col" colspan="3">Order Status</th>
 
-          </tr>
+        </tr>
 
-        </thead>
+      </thead>
 
-        <tbody>
+      <tbody>
 
           <%= render 'orders/actions' %>
 
