@@ -14,19 +14,140 @@
  *= require_self
  */
 
+html,
+body,
+.container-fluid,
+.row {
+  height: 100%;
+}
+
+.ecomm-body {
+  margin: 0px;
+  padding: 0px;
+}
+.ecomm-page{
+  background-color: rgb(242,245,248);
+}
 .gradient-custom-2 {
-/* fallback for old browsers */
-background: #fccb90;
+  /* fallback for old browsers */
+  background: #fccb90;
 
-/* Chrome 10-25, Safari 5.1-6 */
-background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(
+    to right,
+    #ee7724,
+    #d8363a,
+    #dd3675,
+    #b44593
+  );
 
-/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+.navbar {
+  padding-left: 15%;
+  position: inherit;
+  background-color: white;   
+   height: 4em;
+
 }
 @media (min-width: 769px) {
-.gradient-custom-2 {
-border-top-right-radius: .3rem;
-border-bottom-right-radius: .3rem;
+  .gradient-custom-2 {
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+  }
 }
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 240px;
+  background-color: rgb(30, 30, 45);
+  position: fixed;
+  height: 100%;
+  overflow: hidden;
+
+  
+}
+
+.sidebar-nav a {
+  display: block;
+  color: rgb(97, 97, 108);
+  padding: 16px;
+  text-decoration: none;
+}
+
+.sidebar-nav a.active {
+  background-color: rgb(0, 158, 247);
+  color: white;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+}
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgb(97, 97, 108);
+}
+.sidebar-nav a:hover:not(.active) {
+  /* background-color: #555; */
+  color: white;
+}
+div.content {
+  margin-left: 250px;
+  padding: 1px 16px;
+  height: 100%;
+  background-color: rgb(242,245,248);
+
+}
+
+.navbar-brand {
+  color: white;
+}
+.user-name {
+  color: white;
+}
+.user-info {
+  color: white;
+}
+.user-img img {
+  margin-left: 10px;
+  border-radius: 4px;
+}
+.ecomm-logo {
+  padding: 10px;
+  height: 3em;
+}
+.ecomm-logo a:hover {
+  color: white;
+}
+.fa-sign-out {
+  color: white;
+}
+.logout-img {
+  background-image: url("assets/images/logout.svg");
+  background-repeat: no-repeat, repeat;
+  background-color: #cccccc;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {
+    float: left;
+  }
+  div.content {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
 }

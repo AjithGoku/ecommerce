@@ -18,16 +18,45 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
   </script>
-  <%= render 'home/header'%>
-  <div class="container-fluid">
-    <% if notice %>
-    <%= render 'layouts/alerts' %>
-    <%end%>
-    <% if alert %>
-    <p class="alert"><%= alert %></p>
-    <%end%>
-    <%= yield %>
+<div class="container-fluid">
+  <div class="row ecomm-page">
+    
+    <%= render 'home/header'%>
+    <div class="col-md-3 sidebar">
+      <%= render 'home/sidebar'%>
+    </div>
+    
+    <div class="col-md-10 col-md-offset-3 content">
+      <% if notice %>
+      <%= render 'layouts/alerts' %>
+      <%end%>
+      <% if alert %>
+      <p class="alert"><%= alert %></p>
+      <%end%>
+      <%= yield %>
+    </div>
+    
   </div>
+</div>
+
+
+  <!-- <div class="container ecomm-body">
+    <div class="row">
+      <% if notice %>
+      <%= render 'layouts/alerts' %>
+      <%end%>
+      <% if alert %>
+      <p class="alert"><%= alert %></p>
+      <%end%>
+      <div class="col-sm-4 col-md-2">
+        <%= render 'home/sidebar'%>
+      </div>
+      <div class="col-sm-8 col-md-10">
+        <%= render 'home/header'%>
+        <%= yield %>
+      </div>
+  </div> -->
+</div>
 </body>
 
 </html>
