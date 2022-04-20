@@ -1,19 +1,32 @@
 <% @orders.each do |order| %>
 
-    <tr>
+  <tr>
 
-      <td><%= order.user.first_name %></td>
+    <td>
+      <%= order.user.first_name %>
+    </td>
 
-      <td><%= order.total_price%></td>
+    <td>
+      <%= order.total_price%>
+    </td>
 
-      <td><%= order.orderstatus.order_status%></td>
+    <td>
+      <%= order.orderstatus.order_status%>
+    </td>
 
-      <td><%= link_to 'Show', order_path(order.id), class:"btn btn-outline-primary" %></td>
+    <td>
+      <%= link_to 'Show' , order_path(order.id), class:"btn btn-outline-danger" %>
+    </td>
 
-      <td>
-        <%= button_to "Delete", order_path(order.id), method: :delete, class:"btn btn-danger" ,form: { data: { turbo_confirm: "Are you sure you want to delete?" } }%>
-      </td>
+    <td>
+      <%= link_to 'Edit' , edit_order_path(order.id), class:"btn btn-outline-danger" %>
+    </td>
 
-    </tr>
+    <td>
+      <%= button_to "Delete" , order_path(order.id), method: :delete, class:"btn btn-danger" ,form: { data: {
+        turbo_confirm: "Are you sure you want to delete?" } }%>
+    </td>
 
-<% end %>
+  </tr>
+
+  <% end %>

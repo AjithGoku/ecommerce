@@ -5,7 +5,11 @@
     <h4 class="mt-4 display-4">Listing orders</h4>
 
   </div>
+  <div class="mt-4 display-4">
+    <%= link_to 'Create new order' , new_order_path, class:"btn btn-danger" %>
 
+      <%= link_to 'Back' , :back, class:"btn btn-outline-danger" %>
+  </div>
   <% if @orders.present? %>
 
   <div class="row justify-content-center">
@@ -16,7 +20,7 @@
 
         <tr>
 
-          <th scope="col">Customer Name</th>
+            <th scope="col">Customer Name</th>
 
           <th scope="col">Total Price</th>
 
@@ -28,24 +32,24 @@
 
       <tbody>
 
-        <%= render 'orders/actions' %>
+          <%= render 'orders/actions' %>
 
-      </tbody>
+        </tbody>
 
-    </table>
+      </table>
 
-  </div>
+    </div>
 
-  <% else %>
+    <% else %>
 
-  <div class="p-3 mb-2 bg-light text-dark">
+      <div class="p-3 mb-2 bg-light text-dark">
 
-    <span class="text-info font-weight-bold">Welcome! </span>
+        <span class="text-info font-weight-bold">Welcome! </span>
 
-    Create your first order
+        Create your first order
 
-  </div>
+      </div>
 
-  <% end %>
+      <% end %>
 
 </div>
