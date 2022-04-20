@@ -4,12 +4,13 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    can :read, Product, public: true
+    can :read, Product
 
     if user.is_admin?
         can :manage, :all
     else
       can :manage, Order
+      can :manage, OrderItem
     end
 
     # Define abilities for the passed in user here. For example:

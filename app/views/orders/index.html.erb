@@ -5,7 +5,11 @@
     <h4 class="mt-4 display-4">Listing orders</h4>
 
   </div>
+  <div class="mt-4 display-4">
+    <%= link_to 'Create new order' , new_order_path, class:"btn btn-danger" %>
 
+      <%= link_to 'Back' , :back, class:"btn btn-outline-danger" %>
+  </div>
   <% if @orders.present? %>
 
   <div class="row justify-content-center">
@@ -16,7 +20,7 @@
 
         <tr>
 
-          <th scope="col">Customer Name</th>
+            <th scope="col">Customer Name</th>
 
           <th scope="col">Total Price</th>
 
@@ -28,42 +32,24 @@
 
       <tbody>
 
-        <% @orders.each do |order| %>
+          <%= render 'orders/actions' %>
 
-        <tr>
+        </tbody>
 
-          <td><%= order.user.first_name %></td>
+      </table>
 
-          <td><%= order.total_price%></td>
+    </div>
 
-          <td><%= order.orderstatus.order_status%></td>
+    <% else %>
 
-          <td><%= link_to 'Show', order_path(order.id), class:"btn btn-outline-primary" %></td>
+      <div class="p-3 mb-2 bg-light text-dark">
 
-          <td>
-            <%= button_to "Delete", order_path(order.id), method: :delete, class:"btn btn-danger" ,form: { data: { turbo_confirm: "Are you sure you want to delete?" } }%>
-          </td>
+        <span class="text-info font-weight-bold">Welcome! </span>
 
-        </tr>
+        Create your first order
 
-        <% end %>
+      </div>
 
-      </tbody>
-
-    </table>
-
-  </div>
-
-  <% else %>
-
-  <div class="p-3 mb-2 bg-light text-dark">
-
-    <span class="text-info font-weight-bold">Welcome! </span>
-
-    Create your first order
-
-  </div>
-
-  <% end %>
+      <% end %>
 
 </div>
