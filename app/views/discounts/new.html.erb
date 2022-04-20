@@ -1,22 +1,30 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <h4 class="mt-4 mb-4 display-4">New Product Discount</h4>
-  </div>
-  <div class="container">
-    <%= form_with scope: :discount, url: discounts_path, local: true do |form| %>
-    <div class="form-group">
-      <%= form.label :percentage %>
-      <%= form.number_field :percentage, step: :any %>
-    </div>
 
-    <div class="form-group">
-      <%= form.submit class: 'btn btn-primary' %>
-    </div>
-    <% end %>
+<div class="mx-auto bg-white text-dark" style="width: 50%">
+  <div class="card-body p-md-8 mx-md-3">
+    <div class="container">
+      <div class="row justify-content-center">
+        <h4 class="mt-4 mb-4 display-4">New Product Discount</h4>
+      </div>
 
-    <div>
-      <br>
-      <%= link_to 'Back', { controller: 'discounts', action: 'index'}, class:"btn btn-primary btn-sm" %>
+      <div class="row justify-content-center">
+        <div class="row">
+          <div>
+            <%= form_with scope: :discount, url: discounts_path, local: true do |form| %>
+              <div class="form-group">
+                <%= form.label :percentage %>
+                  <%= form.number_field :percentage, class: 'form-control' %>
+              </div>
+              <br />
+
+              <div class="form-group">
+                <%= form.submit class:"form-control btn-primary btn-block fa-lg gradient-custom-2 mb-3" %>
+              </div>
+
+              <div>
+                <%= link_to 'Back' , { controller: 'discounts', action: 'index'}, class:"btn btn-outline-danger" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>

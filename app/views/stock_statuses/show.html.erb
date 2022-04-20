@@ -1,12 +1,39 @@
 <div class="container">
-  <h3>Stock Status Details</h3>
-  <div>
-    <label>Status</label>
-    <%= @stock_status.status %>
+  <div class="row justify-content-center">
+    <h4 class="mt-4 mb-4 display-4"> Stock Status Details </h4>
   </div>
-  <br>
-  <div>
-    <br>
-    <%= link_to 'Back', { controller: 'stock_statuses', action: 'index'}, class:"btn btn-primary btn-sm" %>
+
+  <div class="row justify-content-center">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Stock Status</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td>
+              <%= @stock_status.status %>
+            </td>
+
+            <td>
+              <%= link_to 'Edit' , edit_stock_status_path(@stock_status), class:"btn btn-outline-danger" %>
+            </td>
+
+            <td>
+              <%= button_to "Delete" , stock_status_path(@stock_status), method: :delete, class:"btn btn-danger" ,form: {
+                data: { turbo_confirm: "Are you sure you want to delete?" } }%>
+            </td>
+
+          </tr>
+      </tbody>
+    </table>
+    <div>
+      <%= link_to 'Create new discount percentage' , new_stock_status_path, class:"btn btn-outline-danger" %>
+    </div>
+    <br /><br />
+    <div>
+      <%= link_to 'Back to Index' , stock_statuses_path, class:"btn btn-outline-danger" %>
+    </div>
   </div>
 </div>
