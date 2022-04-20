@@ -9,6 +9,19 @@
         <div class="row">
           <div>
             <%= form_with scope: :productcategory, url: product_categories_path, local: true do |form| %>
+
+              <% if @product_category.errors.any? %>
+                <div id="error_explanation">
+                  <h2 style="color:Red"><%= pluralize(@product_category.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+                  <ul style="color:Red">
+                    <% @product_category.errors.each do |error| %>
+                      <li><%= error.full_message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
+
               <div class="form-group">
                 <%= form.label :name %>
                   <%= form.text_field :name, class: 'form-control' %>

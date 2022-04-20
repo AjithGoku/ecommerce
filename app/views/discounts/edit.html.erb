@@ -9,6 +9,19 @@
         <div class="row">
           <div>
             <%= form_with(model: @discount, local: true) do |form| %>
+
+              <% if @discount.errors.any? %>
+                <div id="error_explanation">
+                  <h2 style="color:Red"><%= pluralize(@discount.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+                  <ul style="color:Red">
+                    <% @discount.errors.each do |error| %>
+                      <li><%= error.full_message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
+
               <div class="form-group">
                 <%= form.label :percentage %>
                   <%= form.number_field :percentage, class: 'form-control' %>
