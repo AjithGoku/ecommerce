@@ -1,28 +1,37 @@
 <div class="container">
-  <h1>Products</h1>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Description</th>
-        <th>Stock Status</th>
-        <th>Discount(in %)</th>
-        <% if can? :manage, @product %>
-        <th>Actions</th>
-        <th colspan="6"></th>
-        <% else %>
-        <th colspan="5"></th>
-        <% end %>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render 'products/actions' %>
-    </tbody>
-  </table>
+  <div class="row justify-content-center">
+    <h4 class="mt-4 display-4">Products</h4>
+  </div>
+  <% if can? :manage, @product %>
+    <div class="mt-4 display-4">
+      <%= link_to 'Create new product' , new_product_path, class:"btn btn-danger" %>
+    </div>
+  <% end %>
+  <div class="row justify-content-center">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Stock Status</th>
+          <th>Discount(in %)</th>
+          <% if can? :manage, @product %>
+            <th>Actions</th>
+            <th colspan="6"></th>
+          <% else %>
+            <th colspan="5"></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render 'products/actions' %>
+      </tbody>
+    </table>
+  </div>
   <br>
   <% if can? :manage, @product %>
-  <%= link_to 'New Product', new_product_path %><br>
+  
   <%= link_to 'Product Discounts', discounts_path %><br>
   <%= link_to 'Product Categories', product_categories_path %><br>
   <%= link_to 'Stock Statuses', stock_statuses_path %>

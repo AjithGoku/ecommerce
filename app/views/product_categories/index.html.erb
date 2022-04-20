@@ -1,19 +1,23 @@
 <div class="container">
-  <h1>Product Category</h1>
+  <div class="row justify-content-center">
+    <h4 class="mt-4 display-4">Product Category</h4>
+  </div>
+  <div class="mt-4 display-4">
+    <%= link_to 'Create new product category' , new_product_category_path, class:"btn btn-danger" %>
+    <%= link_to 'Back' , products_path, class:"btn btn-outline-danger" %>
+  </div>
+  <div class="row justify-content-center">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
 
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <%= render 'product_categories/actions' %>
-    </tbody>
-  </table>
-
-  <%= link_to 'New Product Category', new_product_category_path %><br><br>
-  <%= link_to 'Back', products_path, class:"btn btn-primary btn-sm" %>
+      <tbody>
+        <%= render 'product_categories/actions' %>
+      </tbody>
+    </table>
+  </div>
 </div>

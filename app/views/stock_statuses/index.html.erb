@@ -1,17 +1,23 @@
 <div class="container">
-  <h1>Stock Status</h1>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Status</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render 'stock_statuses/actions' %>
-    </tbody>
-  </table>
+  <div class="row justify-content-center">
+    <h4 class="mt-4 display-4">Stock Status</h4>
+  </div>
+  <div class="mt-4 display-4">
+    <%= link_to 'Create new stock status' , new_stock_status_path, class:"btn btn-danger" %>
+    <%= link_to 'Back' , products_path, class:"btn btn-outline-danger" %>
+  </div>
+  <div class="row justify-content-center">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render 'stock_statuses/actions' %>
+      </tbody>
+    </table>
+  </div>
   <br>
-  <%= link_to 'New Stock Status', new_stock_status_path %><br><br>
-  <%= link_to 'Back', products_path, class:"btn btn-primary btn-sm" %>
 </div>

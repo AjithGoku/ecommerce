@@ -1,23 +1,27 @@
 <div class="container">
-  <p id="notice"><%= notice %></p>
+  <div class="row justify-content-center">
+    <h4 class="mt-4 display-4">Product Discounts</h4>
+  </div>
 
-  <h1>Product Discounts</h1>
+  <div class="mt-4 display-4">
+    <%= link_to 'Create new product discount' , new_discount_path, class:"btn btn-danger" %>
+    <%= link_to 'Back' , products_path, class:"btn btn-outline-danger" %>
+  </div>
 
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Percentage</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
+  <div class="row justify-content-center">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Percentage</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
 
-    <tbody>
-      <%= render 'discounts/actions' %>
-    </tbody>
-  </table>
+      <tbody>
+        <%= render 'discounts/actions' %>
+      </tbody>
+    </table>
+  </div>
 
   <br>
-
-  <%= link_to 'New Product Discount', new_discount_path %><br><br>
-  <%= link_to 'Back', products_path, class:"btn btn-primary btn-sm" %>
 </div>
