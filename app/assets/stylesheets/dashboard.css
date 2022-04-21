@@ -1,0 +1,9 @@
+#dashboard-content .card{
+    border: none;
+    border-radius: 0.5rem;
+}
+
+#dashboard-content .card-body{
+    padding: 1.25rem 1.25rem;
+
+}

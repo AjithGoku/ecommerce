@@ -10,17 +10,20 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *=require "custom"
+ *=require "dashboard"
  *= require_tree .
  *= require_self
  */
 
 html,
 body,
-.container-fluid,
-.row {
+.container-fluid {
   height: 100%;
 }
-
+ .container-fluid {
+  background-color: rgb(242,245,248)!important;
+}
 .ecomm-body {
   margin: 0px;
   padding: 0px;
