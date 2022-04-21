@@ -20,20 +20,28 @@ class ProductCategoriesController < ApplicationController
     end
 
     def update
-        productcategory = ProductCategory.find(params[:id])
+        @product_category = ProductCategory.find(params[:id])
         authorize! :create, @productcategory
-        productcategory.update(productcategory_params)
+        
         respond_to do |format|
-            format.html { redirect_to product_categories_path, notice: "Product Category was updated sucessfully." }  
+            if @product_category.update(productcategory_params)
+                format.html { redirect_to product_categories_path, notice: "Product Category was updated sucessfully." }  
+            else
+                format.html { render :edit, status: :unprocessable_entity }
+            end 
         end
     end
     
     def create
-        productcategory = ProductCategory.new(productcategory_params)
+        @product_category = ProductCategory.new(productcategory_params)
         authorize! :create, @productcategory
-        productcategory.save
+        
         respond_to do |format|
-            format.html { redirect_to product_categories_path, notice: "Product Category was created sucessfully." }  
+            if @product_category.save
+                format.html { redirect_to product_categories_path, notice: "Product Category was created sucessfully." }  
+            else
+                format.html { render :new, status: :unprocessable_entity }
+            end 
         end
     end
 

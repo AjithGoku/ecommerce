@@ -21,20 +21,28 @@ class StockStatusesController < ApplicationController
     end
 
     def update
-        stockstatus = StockStatus.find(params[:id])
+        @stock_status = StockStatus.find(params[:id])
         authorize! :create, @stockstatus
-        stockstatus.update(stockstatus_params)
+        
         respond_to do |format|
-            format.html { redirect_to stock_statuses_path, notice: "Stock Status was updated sucessfully." }  
+            if @stock_status.update(stockstatus_params)
+                format.html { redirect_to stock_statuses_path, notice: "Stock Status was updated sucessfully." } 
+            else
+                format.html { render :edit, status: :unprocessable_entity }
+            end 
         end
     end
     
     def create
-        stockstatus = StockStatus.new(stockstatus_params)
+        @stock_status = StockStatus.new(stockstatus_params)
         authorize! :create, @stockstatus
-        stockstatus.save
+        
         respond_to do |format|
-            format.html { redirect_to stock_statuses_path, notice: "Stock Status was created sucessfully." }  
+            if @stock_status.save
+                format.html { redirect_to stock_statuses_path, notice: "Stock Status was created sucessfully." } 
+            else
+                format.html { render :new, status: :unprocessable_entity }
+            end  
         end
     end
 
