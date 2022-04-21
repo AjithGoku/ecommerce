@@ -1,8 +1,10 @@
 <% @stock_statuses.each do |stockstatus| %>
 <tr>
     <td><%= stockstatus.status %></td>
-    <td><%= link_to 'Show', stock_status_path(stockstatus), class:"btn btn-outline-danger" %></td>
-    <td><%= link_to 'Edit', edit_stock_status_path(stockstatus), class:"btn btn-outline-danger" %></td>
-    <td><%= button_to 'Delete', stock_status_path(stockstatus), method: :delete, class:"btn btn btn-danger" %></td>
+    <td>
+        <%= link_to image_tag("eye-solid.svg", width: 20,float:"right"), stock_status_path(stockstatus) %>  |  
+        <%= link_to image_tag("pen-solid.svg", width: 20,float:"right"), edit_stock_status_path(stockstatus) %>  |  
+        <%= link_to image_tag("trash-solid.svg", width: 20,float:"right"), stock_status_path(stockstatus), data: { "turbo-method": :delete } %>
+    </td>
 </tr>
 <% end %>

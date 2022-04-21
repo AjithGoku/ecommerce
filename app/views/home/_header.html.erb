@@ -21,6 +21,19 @@
                 <li class="nav-item">
                     <%= link_to 'Edit Profile', edit_user_registration_path, class:"nav-link"%>
                 </li>
+                <% if can? :manage, @product %>
+                    <li class="nav-item">
+                        <%= link_to 'Product Discounts', discounts_path, class:"nav-link" %>
+                    </li>
+
+                    <li class="nav-item">
+                        <%= link_to 'Product Categories', product_categories_path, class:"nav-link" %>
+                    </li>
+
+                    <li class="nav-item">
+                        <%= link_to 'Stock Statuses', stock_statuses_path, class:"nav-link" %>
+                    </li>
+                <% end %>
             </ul>
             <form class="d-flex">
                 <%= link_to 'Sign Out', '/users/sign_out', :method => :delete, class:"btn btn-outline-danger"%>
