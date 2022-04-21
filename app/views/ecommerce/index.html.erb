@@ -1,0 +1,106 @@
+<div id="ecommerce-content">
+    <div class="row pt-4 pb-4">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Expected Earnings</h5>
+                            <%= render 'ecommerce/expected_earnings' %>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Average daily sales</h5>
+                            <%= render 'ecommerce/average_sales' %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-4">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Orders this month</h5>
+                            <%= render 'ecommerce/order_per_month' %>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">New Customers this month</h5>
+                            <%= render 'ecommerce/new_customer' %>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Sales this month</h5>
+                    <%= render 'ecommerce/sales_chart' %>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row pb-4">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Recent Orders</h5>
+                    <%= render 'ecommerce/recent_orders' %>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Discounted Products sale</h5>
+                    <%= render 'ecommerce/products_sales_chart' %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row pb-4">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Ecommerce app</h5>
+                    <%= render 'ecommerce/app_info' %>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Product orders</h5>
+                    <%= render 'ecommerce/product_orders' %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Product Delivery</h5>
+                        <%= render 'ecommerce/product_delivery' %>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Stock Report</h5>
+                    <%= render 'ecommerce/stock_report' %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

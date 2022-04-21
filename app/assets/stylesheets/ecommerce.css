@@ -1,9 +1,9 @@
-#dashboard-content .card{
+#ecommerce-content .card{
     border: none;
     border-radius: 0.5rem;
 }
 
-#dashboard-content .card-body{
+#ecommerce-content .card-body{
     padding: 1.25rem 1.25rem;
 
 }
