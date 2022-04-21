@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema[7.0].define(version: 2022_04_15_064807) do
   create_table "discounts", force: :cascade do |t|
-    t.decimal "percentage"
+    t.decimal "percentage", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,25 +43,25 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_15_064807) do
   end
 
   create_table "product_categories", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.decimal "price"
-    t.string "image_url"
+    t.string "name", null: false
+    t.text "description", null: false
+    t.decimal "price", null: false
+    t.string "image_url", null: false
     t.integer "discount_id"
-    t.integer "product_category_id"
-    t.integer "stock_status_id"
+    t.integer "product_category_id", null: false
+    t.integer "stock_status_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "stock_statuses", force: :cascade do |t|
-    t.string "status"
+    t.string "status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

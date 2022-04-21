@@ -18,20 +18,28 @@ class ProductsController < ApplicationController
     end
 
     def update
-        product = Product.find(params[:id])
+        @product = Product.find(params[:id])
         authorize! :update, @product
-        product.update(product_params)
+        
         respond_to do |format|
-            format.html { redirect_to products_url, notice: "Product was successfully updated." }
+            if @product.update(product_params)
+                format.html { redirect_to products_url, notice: "Product was successfully updated." }
+            else
+                format.html { render :edit, status: :unprocessable_entity }
+            end
         end
     end
     
     def create
-        product = Product.new(product_params)
+        @product = Product.new(product_params)
         authorize! :create, @product
-        product.save
+        #product.save
         respond_to do |format|
-            format.html { redirect_to products_url, notice: "Product was successfully created." }
+            if @product.save
+                format.html { redirect_to products_url, notice: "Product was successfully created." }
+            else
+                format.html { render :new, status: :unprocessable_entity }
+            end
         end
     end
 
