@@ -13,12 +13,12 @@
           <div>
 
             <%= form_with scope: :orderstatus, url: order_statuses_path, local: true do |form| %>
-            <% if @orderstatuses.errors.any? %>
+            <% if @ordersstatuses.errors.any? %>
             <div id="error_explanation">
-              <h2 style="color:Red"><%= pluralize(@orderstatuses.errors.count, "error") %> prohibited this article from being saved:</h2>
+              <h2 style="color:Red"><%= pluralize(@ordersstatuses.errors.count, "error") %> prohibited this article from being saved:</h2>
 
               <ul style="color:Red">
-                <% @orderstatuses.errors.each do |error| %>
+                <% @ordersstatuses.errors.each do |error| %>
                   <li><%= error.full_message %></li>
                 <% end %>
               </ul>

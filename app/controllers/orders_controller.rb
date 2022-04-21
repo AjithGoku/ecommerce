@@ -15,29 +15,24 @@ class OrdersController < ApplicationController
 
   def new
   @order = Order.new
-  authorize! :new, @order
+  #authorize! :new, @order
   end
 
   def edit
     @order= Order.find(params[:id])
-    authorize! :edit, @order
+    #authorize! :edit, @order
 
 
   end
 
   def update
     order = Order.find(params[:id])
-    authorize! :update, @order
+    #authorize! :update, @order
     order.update(order_params)
     respond_to do |format|
-      if @order.update(order_params)
 
       format.html { redirect_to orders_url, notice: "order was successfully updated." } 
-    else
-
-      format.html { render :edit, status: :unprocessable_entity }
-
-  end
+   
 
 end 
   
@@ -46,16 +41,12 @@ end
 
   def create
     order = Order.new(order_params)
-    authorize! :create, @order
-    #order.save
+    #authorize! :create, @order
+    order.save
     respond_to do |format|
-      if @order.save
-      format.html { redirect_to order_url, notice: "Order was successfully created." }  
-    else
-
-      format.html { render :new, status: :unprocessable_entity }
-
-  end
+     
+      format.html { redirect_to orders_url, notice: "Order was successfully created." }  
+    
 
 end
   end

@@ -1,7 +1,7 @@
 class OrderItemsController < ApplicationController
       #Display all the orderitems
       def index
-        
+       
     
       end
     
@@ -13,45 +13,38 @@ class OrderItemsController < ApplicationController
     
       def new
       @orderitem = OrderItem.new
-      authorize! :new, @orderitem
+      #authorize! :new, @orderitem
       end
     
       def edit
         @orderitem = OrderItem.find(params[:id])
-        authorize! :edit, @orderitem
+        #authorize! :edit, @orderitem
       end
     
       def update
         orderitem = OrderItem.find(params[:id])
-        authorize! :update, @orderitem
+        #authorize! :update, @orderitem
         orderitem.update(orderitem_params)
         respond_to do |format|
-         if @orderitem.update(product_params)
 
             format.html { redirect_to orders_url, notice: "orderitem was successfully updated." }
-          else
-
-            format.html { render :edit, status: :unprocessable_entity }
-
-        end
-
+         
     end  
       end
         #redirect_to root_path
-      end
+      
     
       def create
         orderitem = OrderItem.new(orderitem_params)
-        authorize! :create, @ordereitem
+        #authorize! :create, @ordereitem
 
 
-        #orderitem.save
+        orderitem.save
         respond_to do |format|
-          if @orderitem.save
+          format.html { redirect_to order_items_url, notice: "Orderstatus was successfully created." }  
 
-          else
-          format.html { redirect_to order_url, notice: "order item was successfully created." }  
-      end
+
+        end
         #redirect_to root_path
       end
     
