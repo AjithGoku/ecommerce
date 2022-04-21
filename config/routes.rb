@@ -11,17 +11,9 @@ Rails.application.routes.draw do
   get 'home/index'
   resources :users
   get 'orders/index', to: 'orders#index'
-
   get 'orders/show', to: 'orders#show'
-
-  #get 'orders/new', to: 'orders#new'
-  #get 'orderitem/new', to: 'orderitem#new'
-
   get 'orders/edit', to: 'orders#edit'
-
   get 'orders/destroy', to: 'orders#destroy'
-  #get 'ordersstatuses/new', to: 'ordersstatuses#new'
-  #get 'ordersstatuses/edit', to: 'ordersstatuses#edit'
   resources :orders
   resources :order_items
   resources :order_statuses

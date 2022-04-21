@@ -1,86 +1,51 @@
 class OrderStatusesController < ApplicationController
-        #Display all the ordersstatuses
+        #Display all the orderstatuses
           def index
-           @ordersstatuses = Orderstatus.all
-  
-        
+           @order_statuses = Orderstatus.all        
           end
         
         #show the orderitems for specific orderstatuses
           def show
-            @ordersstatuses = Orderstatus.find(params[:id])
-            
-        
+            @orderstatus = Orderstatus.find(params[:id])      
           end
         
           def new
-          @ordersstatuses = Orderstatus.new
-          authorize! :new, @orderstatuses
-
-
+          @orderstatus = Orderstatus.new
           end
         
           def edit
-            @orderstatuses = Orderstatus.find(params[:id])
-            authorize! :edit, @orderstatuses
-
-
+            @orderstatus = Orderstatus.find(params[:id])
           end
         
           def update
-            ordersstatuses = Orderstatus.find(params[:id])
-            authorize! :update, @orderstatuses
-
-            ordersstatuses.update(orderstatus_params)
+            @orderstatus = Orderstatus.find(params[:id])
+            @orderstatus.update(orderstatus_params)
             respond_to do |format|
-              if @orderstatuses.save
-
-
-              format.html { redirect_to order_status_url, notice: "orderstatus was successfully updated." }  
-            else
-
-              format.html { render :edit, status: :unprocessable_entity }
-  
-          end
-  
-      end  
+              format.html { redirect_to order_statuses_path, notice: "orderstatus was successfully updated." }  
             end
-          
+          end
         
           def create
-            ordersstatuses = Orderstatus.new(orderstatus_params)
-            #ordersstatuses.save
+            orderstatus = Orderstatus.new(orderstatus_params)
+            orderstatus.save
             respond_to do |format|
-              if @orderestatuses.save
-
-
-              format.html { redirect_to orders_status_path, notice: "Orderstatus was successfully created." }  
-            else
-
-              format.html { render :edit, status: :unprocessable_entity }
-  
-          end
-  
-      end  
+              format.html { redirect_to order_statuses_path, notice: "Orderstatus was successfully created." }
             end
-            #redirect_to root_path
+          end
           
         
         #To destroy the specified order
           def destroy
-            @ordersstatuses = Orderstatus.find(params[:id])
-            @ordersstatuses.destroy
+            @orderstatus = Orderstatus.find(params[:id])
+            @orderstatus.destroy
             respond_to do |format|
-              format.html { redirect_to order_status_path, notice: "Orderstatus  are removed." }  
+              format.html { redirect_to order_statuses_path, notice: "Orderstatus  are removed." }  
             end
           end
         
           private
-        
           def orderstatus_params
               params.require(:orderstatus).permit(:order_status)
           end
-        
-        end
-        
-
+               
+end
