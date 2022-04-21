@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg .bg-light">
+    <% if user_signed_in? %>
     <div class="container">
-        <% if user_signed_in? %>
         <div class="row">
             <div class="mt-2 mb-0">
                 <h5>Dashboard</h5>
@@ -26,18 +26,21 @@
                 <h6 style="color: rgb(94, 98, 120)">Quick Tools</h6>
             </div>
         </div>
-        <% else %>
+    </div>
+    <% else %>
+    <div class="container-fluid">
         <div class="navbar-header">
         </div>
         <ul class="nav navbar-nav navbar-right">
             <li>
                 <%= link_to 'Sign In' , new_user_session_path, class:"nav-link"%>
             </li>
-            <div class="vr"></div>
             <li>
-                <%= link_to 'Sign Up' , new_user_registration_path, class:"nav-link"%>
+                <div class="btn-nav">
+                    <%= link_to 'Sign Up' , new_user_registration_path, class:"btn btn-primary btn-small"%>
+                </div>
             </li>
         </ul>
-        <% end %>
     </div>
+    <% end %>
 </nav>
