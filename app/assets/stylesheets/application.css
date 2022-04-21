@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-
+ @import "font-awesome";
 .gradient-custom-2 {
 /* fallback for old browsers */
 background: #fccb90;
@@ -30,4 +30,3 @@ border-top-right-radius: .3rem;
 border-bottom-right-radius: .3rem;
 }
 }
-@import "font-awesome";
