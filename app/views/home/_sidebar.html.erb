@@ -40,6 +40,11 @@
   <div class="sidebar-nav">
     <%= link_to 'Products' , products_path, class:"active"%>
     <%= link_to 'My Orders' , orders_path %>
+    <% if can? :manage, @product %>
+      <%= link_to 'Product Discounts', discounts_path %>
+      <%= link_to 'Product Categories', product_categories_path %>
+      <%= link_to 'Stock Statuses', stock_statuses_path %>
+    <% end %>
   </div>
   <% end %>
 </div>
