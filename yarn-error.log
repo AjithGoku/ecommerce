@@ -1,0 +1,36 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\atreyee.a.paul\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @fontawesome/fontawesome-free
+
+PATH: 
+  C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files (x86)\Pulse Secure\VC142.CRT\X64\;C:\Program Files (x86)\Pulse Secure\VC142.CRT\X86\;C:\Program Files (x86)\Common Files\Pulse Secure\VC142.CRT\X64\;C:\Program Files (x86)\Common Files\Pulse Secure\VC142.CRT\X86\;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Git\cmd;C:\Ruby31-x64\bin;C:\RailsInstaller\Git\cmd;C:\RailsInstaller\Ruby2.3.3\bin;C:\Users\atreyee.a.paul\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\atreyee.a.paul\AppData\Local\Programs\Python\Python310\;C:\Users\atreyee.a.paul\AppData\Local\Microsoft\WindowsApps;C:\Users\atreyee.a.paul\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\atreyee.a.paul\AppData\Roaming\npm;C:\Users\atreyee.a.paul\.dotnet\tools;C:\Users\atreyee.a.paul\AppData\Local\GitHubDesktop\bin
+
+Yarn version: 
+  1.22.18
+
+Node version: 
+  14.17.6
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@fontawesome%2ffontawesome-free: Not found
+      at Request.params.callback [as _callback] (C:\Users\atreyee.a.paul\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66138:18)
+      at Request.self.callback (C:\Users\atreyee.a.paul\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140883:22)
+      at Request.emit (events.js:400:28)
+      at Request.<anonymous> (C:\Users\atreyee.a.paul\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141855:10)
+      at Request.emit (events.js:400:28)
+      at IncomingMessage.<anonymous> (C:\Users\atreyee.a.paul\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141777:12)
+      at Object.onceWrapper (events.js:519:28)
+      at IncomingMessage.emit (events.js:412:35)
+      at endReadableNT (internal/streams/readable.js:1317:12)
+      at processTicksAndRejections (internal/process/task_queues.js:82:21)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
