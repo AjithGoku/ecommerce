@@ -1,43 +1,48 @@
 <div class="container">
-  <h3>Product Details</h3>
-
-  <div>
-    <img src="<%= @product.image_url %>", width="400" , height="400"> </img>
+  <div class="row justify-content-center">
+    <h4 class="mt-4 mb-4 display-4"> Product Details of <%= @product.name %> </h4>
   </div>
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <div>
+        <img src="<%= @product.image_url %>", width="400" , height="400"> </img>
+      </div><br>
+    </div>
+    <div class="col-md-7">
+      <div>
+        <label><strong>Product Name: </strong></label>
+        <%= @product.name %>
+      </div>
 
-  <div>
-    <label>Product Name: </label>
-    <%= @product.name %>
-  </div>
+      <div>
+        <label><strong>Price: </strong></label>
+        <%= @product.price %>
+      </div>
 
-  <div>
-    <label>Price: </label>
-    <%= @product.price %>
-  </div>
+      <div>
+        <label><strong>Description: </strong></label>
+        <%= @product.description %>
+      </div>
 
-  <div>
-    <label>Description: </label>
-    <%= @product.description %>
-  </div>
+      <div>
+        <label><strong>Discount: </strong></label>
+        <%= @product.discount.percentage if @product.discount.present? %>%
+      </div>
 
-  <div>
-    <label>Discount: </label>
-    <%= @product.discount.percentage if @product.discount.present? %>%
-  </div>
+      <div>
+        <label><strong>Product Category: </strong></label>
+        <%= @product.product_category.name if @product.product_category.present? %>
+      </div>
 
-  <div>
-    <label>Product Category: </label>
-    <%= @product.product_category.name if @product.product_category.present? %>
-  </div>
-
-  <div>
-    <label>Stock Status: </label>
-    <%= @product.stock_status.status if @product.stock_status.present? %>
-  </div>
-
-  <br>
-  <div>
-    <br>
-    <%= link_to 'Back', { controller: 'products', action: 'index'}, class:"btn btn-primary btn-sm" %>
+      <div>
+        <label><strong>Stock Status: </strong></label>
+        <%= @product.stock_status.status if @product.stock_status.present? %>
+      </div>
+      <br>
+      <div>
+        <br>
+        <%= link_to 'Back', { controller: 'products', action: 'index'}, class:"btn btn-outline-danger" %>
+      </div>
+    </div>
   </div>
 </div>

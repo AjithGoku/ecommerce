@@ -1,19 +1,35 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <h4 class="mt-4 mb-4 display-4">Edit Product Category</h4>
-  </div>
-  <div class="row justify-content-center">
-    <%= form_with(model: @product_category, local: true) do |form| %>
-    <div class="form-group">
-      <%= form.label :name %>
-      <%= form.text_field :name %>
-    </div>
+<div class="mx-auto bg-white text-dark" style="width: 50%">
+  <div class="card-body p-md-8 mx-md-3">
+    <div class="container">
+      <div class="row justify-content-center">
+        <h4 class="mt-4 mb-4 display-4">Edit Product Category</h4>
+      </div>
+      <div class="row justify-content-center">
+        <%= form_with(model: @product_category, local: true) do |form| %>
+          <% if @product_category.errors.any? %>
+            <div id="error_explanation">
+              <h2 style="color:Red"><%= pluralize(@product_category.errors.count, "error") %> prohibited this article from being saved:</h2>
 
-    <div class="form-group">
-      <%= form.submit class: 'btn btn-primary' %>
+              <ul style="color:Red">
+                <% @product_category.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="form-group">
+            <%= form.label :name %>
+            <%= form.text_field :name, class: 'form-control' %>
+          </div>
+          <br>
+          
+          <div class="form-group">
+            <%= form.submit class:"form-control btn-primary btn-block fa-lg gradient-custom-2 mb-3" %>
+          </div>
+          
+          <%= link_to 'Back' , { controller: 'product_categories', action: 'index'}, class:"btn btn-outline-danger" %>
+        <% end %>
+      </div>
     </div>
-    <% end %>
   </div>
-  <%= link_to 'Show', product_category_path, class:"btn btn-outline-primary btn-sm" %> |
-  <%= link_to 'Back', product_categories_path, class:"btn btn-primary btn-sm" %>
 </div>

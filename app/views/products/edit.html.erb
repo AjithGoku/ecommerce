@@ -1,50 +1,81 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <h4 class="mt-4 mb-4 display-4">Edit Product</h4>
-  </div>
-  <div class="row justify-content-center">
-    <%= form_with(model: @product, local: true) do |form| %>
-    <div class="form-group">
-      <%= form.label :name %>
-      <%= form.text_field :name %>
-    </div>
 
-    <div class="form-group">
-      <%= form.label :image_url %>
-      <%= form.text_field :image_url %>
-    </div>
+<div class="mx-auto bg-white text-dark" style="width: 50%">
+  <div class="card-body p-md-8 mx-md-3">
+    <div class="container">
+      <div class="row justify-content-center">
+        <h4 class="mt-4 mb-4 display-4">Edit Product</h4>
+      </div>
 
-    <div class="form-group">
-      <%= form.label :description %>
-      <%= form.text_area :description %>
-    </div>
+      <div class="row justify-content-center">
+        <div class="row">
+          <div>
+            <%= form_with(model: @product, local: true) do |form| %>
 
-    <div class="form-group">
-      <%= form.label :price %>
-      <%= form.number_field :price, step: :any %>
-    </div>
+              <% if @product.errors.any? %>
+                <div id="error_explanation">
+                  <h2 style="color:Red"><%= pluralize(@product.errors.count, "error") %> prohibited this article from being saved:</h2>
 
-    <div class="form-group">
-      <%= form.label :discount %>
-      <%= form.select :discount_id, Discount.all.collect {|u| [u.percentage, u.id]}, {}, class: "select" %>
-    </div>
+                  <ul style="color:Red">
+                    <% @product.errors.each do |error| %>
+                      <li><%= error.full_message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
 
-    <div class="form-group">
-      <%= form.label :product_category %>
-      <%= form.select :product_category_id, ProductCategory.all.collect {|u| [u.name, u.id]}, {}, class: "select" %>
-    </div>
+              <div class="form-group">
+                <%= form.label :name %>
+                  <%= form.text_field :name, class: 'form-control' %>
+              </div>
 
-    <div class="form-group">
-      <%= form.label :stock_status %>
-      <%= form.select :stock_status_id, StockStatus.all.collect {|u| [u.status, u.id]}, {}, class: "select" %>
+              <div class="form-group">
+                <%= form.label :image_url %>
+                  <%= form.text_field :image_url, class: 'form-control' %>
+              </div>
+              <br />
+
+              <div class="form-group">
+                <%= form.label :description %>
+                  <%= form.text_area :description, class: 'form-control' %>
+              </div>
+              <br />
+
+              <div class="form-group">
+                <%= form.label :price %>
+                  <%= form.number_field :price, class: 'form-control' %>
+              </div>
+              <br />
+
+              <div class="form-group">
+                <%= form.label :discount %>
+                  <%= form.select :discount_id, Discount.all.collect {|u| [u.percentage, u.id]}, {},
+                    class: "select" %>
+              </div>
+              <br />
+
+              <div class="form-group">
+                <%= form.label :product_category %>
+                  <%= form.select :product_category_id, ProductCategory.all.collect {|u| [u.name, u.id]}, {},
+                    class: "select" %>
+              </div>
+              <br />
+
+              <div class="form-group">
+                <%= form.label :stock_status %>
+                  <%= form.select :stock_status_id, StockStatus.all.collect {|u| [u.status, u.id]}, {},
+                    class: "select" %>
+              </div>
+              <br />
+
+              <div class="form-group">
+                <%= form.submit class:"form-control btn-primary btn-block fa-lg gradient-custom-2 mb-3" %>
+              </div>
+
+              <div>
+                <%= link_to 'Back' , :back, class:"btn btn-outline-danger" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-  <br>
-    <div class="form-group">
-      <%= form.submit class: 'btn btn-primary' %>
-    </div>
-    <% end %>
-  </div>
-  <br>
-  <%= link_to 'Show', @product, class:"btn btn-outline-primary btn-sm" %> |
-  <%= link_to 'Back', products_path, class:"btn btn-primary btn-sm" %>
-</div>

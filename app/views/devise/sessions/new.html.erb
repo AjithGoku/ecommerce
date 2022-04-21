@@ -3,7 +3,7 @@
   <div class="text-center">
     <h4>You are just one step away!</h4>
   </div>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
   <br>
   <p>Please login to your account</p>
   <div class="form-outline mb-4">
