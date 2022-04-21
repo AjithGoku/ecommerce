@@ -1,11 +1,11 @@
 class OrderItemsController < ApplicationController
-      #Display all the orders
+      #Display all the orderitems
       def index
         
     
       end
     
-    #show the orderitems for specific order
+    #show the orderitems for specific orderitems
       def show
         @orderitem = OrderItem.find(params[:id])
     
@@ -13,26 +13,44 @@ class OrderItemsController < ApplicationController
     
       def new
       @orderitem = OrderItem.new
+      authorize! :new, @orderitem
       end
     
       def edit
         @orderitem = OrderItem.find(params[:id])
+        authorize! :edit, @orderitem
       end
     
       def update
         orderitem = OrderItem.find(params[:id])
+        authorize! :update, @orderitem
         orderitem.update(orderitem_params)
         respond_to do |format|
-          format.html { redirect_to orders_url, notice: "orderitem was successfully updated." }  
+         if @orderitem.update(product_params)
+
+            format.html { redirect_to orders_url, notice: "orderitem was successfully updated." }
+          else
+
+            format.html { render :edit, status: :unprocessable_entity }
+
+        end
+
+    end  
       end
         #redirect_to root_path
       end
     
       def create
         orderitem = OrderItem.new(orderitem_params)
-        orderitem.save
+        authorize! :create, @ordereitem
+
+
+        #orderitem.save
         respond_to do |format|
-          format.html { redirect_to orders_url, notice: "order item was successfully created." }  
+          if @orderitem.save
+
+          else
+          format.html { redirect_to order_url, notice: "order item was successfully created." }  
       end
         #redirect_to root_path
       end
@@ -42,9 +60,11 @@ class OrderItemsController < ApplicationController
         @orderitem = OrderItem.find(params[:id])
         @orderitem.destroy
         respond_to do |format|
-          format.html { redirect_to orders_index_path, notice: "order item is removed." }  
+          format.html { redirect_to orders_index_path, notice: "order item is removed." } 
+       
+  end   
         end
-      end
+      
     
       private
     

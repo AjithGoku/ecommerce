@@ -4,19 +4,16 @@
       <%= order_items %>
     </td>
     <td>
-      <%= link_to 'Show' , order_items_path(orderitem), class:"btn btn-outline-primary btn-sm" %>
-        <%= link_to 'Edit' , edit_order_items_path(orderitem), class:"btn btn-outline-warning btn-sm" %>
-          <%= button_to 'Delete' , order_items_path(orderitem), method: :delete, class:"btn btn-outline-danger btn-sm"
-            %>
+      <%= link_to image_tag("eye-solid.svg", width: 20,float:"right"), order_items_path(orderitem) %>  |  
+
+        <%= link_to image_tag("pen-solid.svg", width: 20,float:"right"), edit_order_items_path(orderitem) %>  |  
+
+        <%= link_to image_tag("trash-solid.svg", width: 20,float:"right"), order_items_path(orderitem), data: { "turbo-method": :delete } %>
+
     </td>
-    <td>
-      <%= link_to 'Show' , order_items_path(orderitem), class:"btn btn-outline-primary btn-sm" %>
-    </td>
-    <td>
-      <%= link_to 'Edit' , order_items_path(orderitem), class:"btn btn-outline-warning btn-sm" %>
-    </td>
-    <td>
-      <%= button_to 'Delete' , order_items_path(orderitem), method: :delete, class:"btn btn-outline-danger btn-sm" %>
-    </td>
-  </tr>
+
+</tr>
+
+
+      
   <% end %>

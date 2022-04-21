@@ -1,0 +1,73 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <h4 class="mt-4 display-4">Listing ordersstatuses</h4>
+
+    </div>
+    <div class="mt-4 display-4">
+
+        <%= link_to 'Back' , :back, class:"btn btn-outline-danger" %>
+    </div>
+    <% if @ordersstatuses.present? %>
+
+        <div class="row justify-content-center">
+
+            <table class="table table-bordered">
+
+                <thead>
+
+                    <tr>
+
+                        <th scope="col" colspan="3">Order Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    <% @ordersstatuses.each do |orderstatus| %>
+                        <tr>
+
+
+
+
+                            <td>
+                                <%= orderstatus.order_status %>
+                            </td>
+                            <td>
+                                <%= link_to image_tag("eye-solid.svg", width: 20,float:"right"), order_status_path(orderstatus.id) %>  |  
+
+        <%= link_to image_tag("pen-solid.svg", width: 20,float:"right"), edit_order_status_path(orderstatus.id) %>  |  
+
+        <%= link_to image_tag("trash-solid.svg", width: 20,float:"right"), order_status_path(orderstatus.id), data: { "turbo-method": :delete } %>
+
+    </td>
+    
+
+</tr>
+
+
+                              
+                             
+                        </tr>
+                        <% end %>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <% else %>
+
+            <div class="p-3 mb-2 bg-light text-dark">
+
+                <span class="text-info font-weight-bold">Welcome! </span>
+
+                Create your first orderstatus
+
+            </div>
+
+            <% end %>
+
+</div>
