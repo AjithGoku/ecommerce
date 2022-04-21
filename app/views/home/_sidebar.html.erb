@@ -1,0 +1,51 @@
+<div>
+  <div class="ecomm-logo row">
+    <div class="col-md-10">
+      <a class="navbar-brand" href="/">
+        <img
+          src="https://w7.pngwing.com/pngs/384/470/png-transparent-retail-computer-icons-e-commerce-sales-mega-offer-miscellaneous-service-logo.png"
+          width="30" height="30" class="d-inline-block align-top" alt="" />
+        Shoppy
+      </a>
+    </div>
+    <% if user_signed_in? %>
+    <div class="col-md-1">
+      <%= link_to image_tag("logout1.png", width: 20,float:"right"), '/users/sign_out' , :method=> :delete%>
+    </div>
+    <% end %>
+  </div>
+  <hr />
+  <% if user_signed_in? %>
+  <div class="row">
+    <div class="col-md-3 user-img">
+      <% if current_user.profile_picture_url? %>
+      <img src="<%= current_user.profile_picture_url %>" width="40" height="40" class="d-inline-block align-top"
+        alt="" />
+      <% else %>
+      <img
+        src="https://w7.pngwing.com/pngs/384/470/png-transparent-retail-computer-icons-e-commerce-sales-mega-offer-miscellaneous-service-logo.png"
+        width="40" height="40" class="d-inline-block align-top" alt="" />
+      <% end %>
+    </div>
+    <div class="col-md-7">
+      <p class="user-name">
+        <%= current_user.first_name %>
+      </p>
+    </div>
+    <div class="col-md-1" style="padding: 0px">
+      <%= link_to image_tag("settings.png", width: 20,float:"right"), edit_user_registration_path%>
+    </div>
+  </div>
+  <hr />
+  <div class="sidebar-nav">
+    <%= link_to 'Ecommerce' , ecommerce_index_path, class:"active" %>
+    <%= link_to 'Products' , products_path%>
+    <%= link_to 'My Orders' , orders_path %>
+    <% if can? :manage, @product %>
+      <%= link_to 'Product Discounts', discounts_path %>
+      <%= link_to 'Product Categories', product_categories_path %>
+      <%= link_to 'Stock Statuses', stock_statuses_path %>
+    <% end %>
+  </div>
+  <% end %>
+</div>

@@ -6,9 +6,10 @@
 
   <td><%= product.stock_status.status if product.stock_status.present? %></td>
   <td><%= product.discount.percentage if product.discount.present? %>%</td>
-  <% if can? :manage, @product %>
+  
     <div class="col">
-      <td><%= link_to image_tag("eye-solid.svg", width: 20,float:"right"), product_path(product) %> | 
+      <td><%= link_to image_tag("eye-solid.svg", width: 20,float:"right"), product_path(product) %>
+      <% if can? :manage, @product %> | 
       <%= link_to image_tag("pen-solid.svg", width: 20,float:"right"), edit_product_path(product) %> | 
       <%= link_to image_tag("trash-solid.svg", width: 20,float:"right"), product_path(product.id), data: { "turbo-method": :delete } %>
       </td>
