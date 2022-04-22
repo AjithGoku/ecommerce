@@ -29,7 +29,9 @@
   
                   <%= form.label :order_status %>
   
-                  <%= form.text_field :order_status, class: 'form-control' %>
+                 
+                  <%= form.select :orderstatus, Orderstatus.all.collect {|u| [u.order_status]}, {},
+                  class: "select" %>
                 </div>
   
             
