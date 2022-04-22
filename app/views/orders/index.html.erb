@@ -5,7 +5,9 @@
     <h4 class="mt-4 display-4">Listing orders</h4>
 
   </div>
-
+  <div class="mt-4 display-4">
+    <%= link_to 'Create new order' , new_order_path, class:"btn btn-danger" %>
+  </div>
   <% if @orders.present? %>
 
     <div class="row justify-content-center">

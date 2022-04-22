@@ -6,6 +6,19 @@
       </div>
       <div class="row justify-content-center">
         <%= form_with(model: @stock_status, local: true) do |form| %>
+
+          <% if @stock_status.errors.any? %>
+            <div id="error_explanation">
+              <h2 style="color:Red"><%= pluralize(@stock_status.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+              <ul style="color:Red">
+                <% @stock_status.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
           <div class="form-group">
             <%= form.label :status %>
             <%= form.text_field :status, class: 'form-control' %>

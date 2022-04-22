@@ -9,6 +9,18 @@
         <div class="row">
           <div>
             <%= form_with(model: @product, local: true) do |form| %>
+              <% if @product.errors.any? %>
+                <div id="error_explanation">
+                  <h2 style="color:Red"><%= pluralize(@product.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+                  <ul style="color:Red">
+                    <% @product.errors.each do |error| %>
+                      <li><%= error.full_message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
+
               <div class="form-group">
                 <%= form.label :name %>
                   <%= form.text_field :name, class: 'form-control' %>
@@ -58,7 +70,7 @@
               </div>
 
               <div>
-                <%= link_to 'Back' , :back, class:"btn btn-outline-danger" %>
+                <%= link_to 'Back' , { controller: 'products', action: 'index'}, class:"btn btn-outline-danger" %>
               </div>
             <% end %>
           </div>

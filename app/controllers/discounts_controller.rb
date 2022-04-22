@@ -20,20 +20,28 @@ class DiscountsController < ApplicationController
     end
 
     def update
-        discount = Discount.find(params[:id])
+        @discount = Discount.find(params[:id])
         authorize! :create, @discount
-        discount.update(discount_params)
+        
         respond_to do |format|
-            format.html { redirect_to discounts_path, notice: "Discount Percentage was updated sucessfully." }  
+            if @discount.update(discount_params)
+                format.html { redirect_to discounts_path, notice: "Discount Percentage was updated sucessfully." } 
+            else
+                format.html { render :edit, status: :unprocessable_entity }
+            end 
         end
     end
     
     def create
-        discount = Discount.new(discount_params)
+        @discount = Discount.new(discount_params)
         authorize! :create, @discount
-        discount.save
+        
         respond_to do |format|
-            format.html { redirect_to discounts_path, notice: "Discount Percentage was created sucessfully." }  
+            if @discount.save
+                format.html { redirect_to discounts_path, notice: "Discount Percentage was created sucessfully." } 
+            else
+                format.html { render :new, status: :unprocessable_entity }
+            end 
         end
     end
 

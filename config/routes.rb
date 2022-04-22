@@ -29,4 +29,5 @@ Rails.application.routes.draw do
   resources :stock_statuses
   resources :discounts
   resources :product_categories
+  resources :ecommerce
 end
