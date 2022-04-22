@@ -1,0 +1,9 @@
+<% @order_statuses.each do |orderstatus| %>
+<tr>
+    <td><%= orderstatus.status %></td>
+    <td>
+        <%= link_to image_tag("pen-solid.svg", width: 20,float:"right"), edit_order_status_path(orderstatus) %>  |  
+        <%= link_to image_tag("trash-solid.svg", width: 20,float:"right"), order_status_path(orderstatus), data: { "turbo-method": :delete } %>
+    </td>
+</tr>
+<% end %>

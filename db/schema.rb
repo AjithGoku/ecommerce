@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_15_064807) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_21_153047) do
   create_table "discounts", force: :cascade do |t|
     t.decimal "percentage", null: false
     t.datetime "created_at", null: false
@@ -28,16 +28,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_15_064807) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.integer "user_id"
-    t.float "total_price"
-    t.integer "orderstatus_id"
+  create_table "order_statuses", force: :cascade do |t|
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "orderstatuses", force: :cascade do |t|
-    t.string "order_status"
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id"
+    t.float "total_price"
+    t.integer "orderstatus_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

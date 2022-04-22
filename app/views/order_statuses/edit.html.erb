@@ -1,0 +1,38 @@
+<div class="mx-auto bg-white text-dark" style="width: 50%">
+    <div class="card-body p-md-8 mx-md-3">
+        <div class="container">
+            <div class="row justify-content-center">
+                <h4 class="mt-4 mb-4 display-4">Edit Order Status</h4>
+            </div>
+            <div class="row justify-content-center">
+                <%= form_with(model: @order_status, local: true) do |form| %>
+
+                <% if @order_status.errors.any? %>
+                <div id="error_explanation">
+                    <h2 style="color:Red"><%= pluralize(@order_status.errors.count, "error") %> prohibited this article
+                        from being saved:</h2>
+
+                    <ul style="color:Red">
+                        <% @order_status.errors.each do |error| %>
+                        <li><%= error.full_message %></li>
+                        <% end %>
+                    </ul>
+                </div>
+                <% end %>
+
+                <div class="form-group">
+                    <%= form.label :status %>
+                    <%= form.text_field :status, class: 'form-control' %>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <%= form.submit class:"form-control btn-primary btn-block fa-lg gradient-custom-2 mb-3" %>
+                </div>
+
+                <%= link_to 'Back' , { controller: 'order_statuses', action: 'index'}, class:"btn btn-outline-danger" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <h4 class="mt-4 display-4">Order Status</h4>
+    </div>
+    <div class="mt-4 display-4">
+        <%= link_to 'Create new order status' , new_order_status_path, class:"btn btn-danger" %>
+    </div>
+    <div class="row justify-content-center">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%= render 'order_statuses/actions' %>
+            </tbody>
+        </table>
+    </div>
+    <br>
+</div>
