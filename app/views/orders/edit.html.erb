@@ -12,13 +12,23 @@
         <div class="row">
           <div>
             <%= form_with(model: @order, local: true) do |form| %>
+            
+            <% if @order.errors.any? %>
+            <div id="error_explanation">
+              <h2 style="color:Red"><%= pluralize(@order.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+              <ul style="color:Red">
+                <% @order.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
 
               <div class="form-group">
 
-                <%= form.label :user_id %>
-
-                  <%= form.text_area :user_id ,class: 'form-control' %>
-
+                <%= form.number_field :user_id, class: 'form-control' %>
+               
               </div>
 
               <div class="form-group">
@@ -26,7 +36,7 @@
                 <%= form.label :total_price %>
 
                   <%= form.number_field :total_price, class: 'form-control' %>
-
+                 
               </div>
               <br />
               <div class="form-group">

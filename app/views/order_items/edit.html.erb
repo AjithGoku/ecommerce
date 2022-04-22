@@ -6,6 +6,17 @@
       </div>
       <div class="row justify-content-center">
         <%= form_with scope: :orderitem, url: order_items_path, local: true do |form| %>
+        <% if @orderitem.errors.any? %>
+        <div id="error_explanation">
+          <h2 style="color:Red"><%= pluralize(@orderitem.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+          <ul style="color:Red">
+            <% @orderitem.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
           <div class="form-group">
 
             <%= form.label :order %>

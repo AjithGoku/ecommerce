@@ -15,18 +15,20 @@
     </td>
 
     <td>
-      <%= link_to 'Show' , order_path(order.id), class:"btn btn-outline-danger" %>
-    </td>
+      <%= link_to image_tag("eye-solid.svg", width: 20,float:"right"), order_path(order.id) %>  |  
 
-    <td>
-      <%= link_to 'Edit' , edit_order_path(order.id), class:"btn btn-outline-danger" %>
-    </td>
+        <%= link_to image_tag("pen-solid.svg", width: 20,float:"right"), edit_order_path(order.id) %>  |  
 
-    <td>
-      <%= button_to "Delete" , order_path(order.id), method: :delete, class:"btn btn-danger" ,form: { data: {
-        turbo_confirm: "Are you sure you want to delete?" } }%>
-    </td>
 
-  </tr>
+    
+    <%= link_to image_tag("trash-solid.svg", width: 20,float:"right"), order_path(order.id), data: { "turbo-method": :delete, turbo_confirm: "Are you sure you want to delete?" } %>
+    
+  </td>
+    
+    
+   
+</tr>
 
+
+     
   <% end %>

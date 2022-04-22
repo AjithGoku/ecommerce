@@ -20,9 +20,11 @@ Rails.application.routes.draw do
   get 'orders/edit', to: 'orders#edit'
 
   get 'orders/destroy', to: 'orders#destroy'
-
+  #get 'ordersstatuses/new', to: 'ordersstatuses#new'
+  #get 'ordersstatuses/edit', to: 'ordersstatuses#edit'
   resources :orders
   resources :order_items
+  resources :order_statuses
   resources :products
   resources :stock_statuses
   resources :discounts
