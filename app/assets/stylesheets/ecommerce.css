@@ -1,6 +1,8 @@
 #ecommerce-content .card{
     border: none;
     border-radius: 0.5rem;
+    padding-top:3rem;
+    padding-bottom:3rem;
 }
 
 #ecommerce-content .card-body{

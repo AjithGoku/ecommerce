@@ -1,3 +1,4 @@
+
 <div id="ecommerce-content">
     <div class="row pt-4 pb-4">
         <div class="col-sm-6">
@@ -67,15 +68,26 @@
             </div>
         </div>
     </div>
-    <div class="row pb-4">
+<div class="row pb-4">
         <div class="col-sm-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Ecommerce app</h5>
-                    <%= render 'ecommerce/app_info' %>
+                        <h4 class="text-gray-600 text-center lh-md"> Have you tried
+                            <br>
+                            new
+                            <span class="lh-lg fw-boldest"><strong>eCommerce App?</strong> </span></h4>
+                    <%= link_to image_tag("shopping.jpg", width: 250) %>
+                    <br>
+                 <div class="text-center mb-1">
+
+                    <%= link_to 'View App' , new_order_path, class:"btn btn-sm btn-primary me-2" %>
+                    <%= link_to 'New Product' , new_order_path, class:"btn btn-sm btn-light" %>
                 </div>
-            </div>
+                    </div>
         </div>
+</div>
+            
+            
         <div class="col-sm-8">
             <div class="card">
                 <div class="card-body">
