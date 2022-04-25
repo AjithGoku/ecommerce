@@ -71,8 +71,12 @@
         <div class="col-sm-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Ecommerce app</h5>
-                    <%= render 'ecommerce/app_info' %>
+                    <h2 class="card-title">Have you tried new ecommerce App ?</h2>
+                    <%= link_to image_tag("shopping.jpg", width: 250) %>  |  
+                    <%= link_to 'View App' , new_order_path, class:"btn btn-danger" %>
+                    <%= link_to 'New Product' , new_order_path, class:"btn btn-danger" %>
+
+
                 </div>
             </div>
         </div>
