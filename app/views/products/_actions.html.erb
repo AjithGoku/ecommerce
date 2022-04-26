@@ -1,6 +1,6 @@
 <% @products.each do |product| %>
 <tr>
-  <td><%= link_to product.name, product_path(product) %></td>
+  <td><strong><%= link_to product.name, product_path(product) %></strong></td>
   <td><%= product.price %></td>
   <td><%= truncate(product.description, :length => 75) %></td>
 

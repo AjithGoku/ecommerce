@@ -27,7 +27,7 @@
                     </td>
 
                     <td>
-                        $<%= p.price.to_s().gsub(".", "").to_i()/10 %>
+                        $<%= number_with_delimiter(p.price.to_s().gsub(".", "").to_i()/10) %>
                     </td>
 
                     <td>
