@@ -17,7 +17,7 @@
 		</div>
 		<div class="card-body d-flex align-items-end pt-0">		
 			<div class="d-flex align-items-center flex-column mt-3 w-100" style="height:120px">
-                <%= column_chart @data, colors: ["#87CEFA"], prefix: "$", discrete: true, library: {vAxis: {gridlines: {color: "transparent"}}} %>
+                <%= column_chart @average_data, colors: ["#87CEFA"], prefix: "$" %>
 			</div>								
 		</div>								
 	</div>

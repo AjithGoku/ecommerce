@@ -5,13 +5,12 @@ class EcommerceController < ApplicationController
         @totalusers=User.count
         @totalproducts=Product.count
         @data=Order.group("STRFTIME('%Y-%m-%d', created_at)").pluck(Arel.sql("STRFTIME('%Y-%m-%d', created_at) as created_at, sum(total_price)"))
-        @average_data=Order.group("STRFTIME('%Y-%m-%d', created_at)").pluck(Arel.sql("STRFTIME('%Y-%m-%d', created_at) as created_at, sum(total_price/@totalusers)"))
+        @average_data=Order.group("STRFTIME('%Y-%m-%d', created_at)").pluck(Arel.sql("STRFTIME('%Y-%m-%d', created_at) as created_at, avg(total_price)"))
         @p=Product.first(7)
         @ordergoal=200
         @orderpercent= (@totalorders*100)/@ordergoal
         @salesgoal=100000
         @sales_difference=@salesgoal-@totalprice
-        @total_average_sales= (@totalprice/@totalusers).round() 
-        
+        @total_average_sales= (@totalprice/@totalorders).round()  
     end
 end
