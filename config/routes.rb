@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   get 'orders/destroy', to: 'orders#destroy'
   #get 'ordersstatuses/new', to: 'ordersstatuses#new'
   #get 'ordersstatuses/edit', to: 'ordersstatuses#edit'
+
+  get 'ecommerce/orderlist', to: 'ecommerce#orderlist'
+
   resources :orders
   resources :order_items
   resources :order_statuses

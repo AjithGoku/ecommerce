@@ -38,7 +38,9 @@
   </div>
   <hr />
   <div class="sidebar-nav">
+     <% if can? :manage, :all %>
     <%= link_to 'Dashboard', ecommerce_index_path, class:"nav-link" %>
+    <% end %>
     <%= link_to 'Products', products_path, class:"nav-link" %>
     <%= link_to 'My Orders', orders_path, class:"nav-link" %>
     <% if can? :manage, @product %>
