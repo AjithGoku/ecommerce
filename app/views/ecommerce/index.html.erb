@@ -92,13 +92,38 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-8">
+        <div class="col-sm-8 stock-report-section">
             <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Stock Report</h5>
-                    <%= render 'ecommerce/stock_report' %>
+                <div class="card-header bg-white pt-3">
+                    <h3 class="card-title align-items-start flex-column">
+                            <span class="card-labeltext-gray-500">Stock Report</span>
+                            <span class="text-gray-400 mt-1 fw-bold fs-6">Total <%=@totalproducts %> products in stock</span>
+                    </h3>
+                    <div class="card-toolbar">
+                        <div class="text-gray-400 me-2">Cateogry</div>
+                            <select class="category-select">
+                                <option selected>Show All</option>
+                                <% @product_categories.each do |category|%>
+                                <option value=<%= category.id%>> <%= category.name%></option>
+                                <%end%>
+                            </select>
+                            <div class="text-gray-400 me-2">Status</div>
+
+                            <select>
+                                <option selected>Show All</option>
+                                <% @stock_status.each do |status|%>
+                                <option value=<%= status.id%>> <%= status.status%></option>
+                                <%end%>
+                            </select>
+                            <div class="position-relative my-1">
+                                <%= link_to 'View Stock' , products_path, class:"btn btn-light" %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <%= render 'ecommerce/stock_report' %>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>

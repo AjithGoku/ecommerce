@@ -4,3 +4,9 @@ import "controllers"
 
 import "chartkick"
 import "Chart.bundle"
+
+$(document).ready(function () {
+    $('category-select').on('change', function () {
+        alert(this.value);
+    });
+});

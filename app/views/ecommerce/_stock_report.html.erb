@@ -1,14 +1,13 @@
-<div id="stockreport">
-    <p class="text-secondary"><strong>Total <%=@totalproducts %> products in stock</strong></p>
+<div id="stock-report">
     <div class="container">
         <table class="table">
             <thead>
             <tr>
-                <th scope="col" class="text-secondary">Item</th>
-                <th scope="col" class="text-secondary">Product ID</th>
-                <th scope="col" class="text-secondary">Date Added</th>
-                <th scope="col" class="text-secondary">Price</th>
-                <th scope="col" class="text-secondary">Status</th>
+                <th scope="col" style="color:#B5B5C3">Item</th>
+                <th scope="col" style="color:#B5B5C3">Product ID</th>
+                <th scope="col" style="color:#B5B5C3">Date Added</th>
+                <th scope="col" style="color:#B5B5C3">Price</th>
+                <th scope="col" style="color:#B5B5C3">Status</th>
             </tr>
             </thead>
             <tbody>
@@ -32,13 +31,13 @@
 
                     <td>
                         <% if p.stock_status.status.eql?("Out of stock") %>
-                            <span class="badge bg-danger" style="height:23px"><%= p.stock_status.status %></span>
+                            <span class="order-status-card col-md-3 out-status"><%= p.stock_status.status %></span>
                         <% end %>
                         <% if p.stock_status.status.eql?("Low stock") %>
-                            <span class="badge bg-warning" style="height:23px"><%= p.stock_status.status %></span>
+                            <span class="order-status-card col-md-3 low-status"><%= p.stock_status.status %></span>
                         <% end %>
                         <% if p.stock_status.status.eql?("In stock") %>
-                            <span class="badge bg-success" style="height:23px"><%= p.stock_status.status %></span>
+                            <span class="order-status-card col-md-3 in-status"><%= p.stock_status.status %></span>
                         <% end %>
                     </td>
 

@@ -3,10 +3,10 @@
 		<div class="container" align="left">
 			<div class="card-title d-flex flex-column">
 				<div class="d-flex align-items-center">
-                    <span class="text-secondary">$</span>
+                    <span class="text-gray-400 mt-1 fw-bold fs-6">$</span>
                     <h2><%= number_with_delimiter(@totalprice.to_s().gsub(".", "").to_i()/10)   %></h2> &nbsp
 				</div>
-				<span class="text-secondary"><strong>Another $<%= number_with_delimiter(@sales_difference.to_s().gsub(".", "").to_i()/10) %> to Goal</strong></span>							
+				<span class="text-gray-400 mt-1 fw-bold fs-6">Another $<%= number_with_delimiter(@sales_difference.to_s().gsub(".", "").to_i()/10) %> to Goal</span>							
 			</div>										
 		</div>
 		<div class="card-body d-flex align-items-end pt-0">		
