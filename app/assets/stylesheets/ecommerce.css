@@ -63,7 +63,7 @@
 #product-delivery main::-webkit-scrollbar-thumb, span::-webkit-scrollbar-thumb, ol::-webkit-scrollbar-thumb, ul::-webkit-scrollbar-thumb, pre::-webkit-scrollbar-thumb, div::-webkit-scrollbar-thumb {
     background-color: #EFF2F5;
 }
-#product-delivery .pe-6 {
+ .pe-6 {
     padding-right: 1.5rem !important;
 }
 .product-orders-section  .card-header .card-title.flex-column {
