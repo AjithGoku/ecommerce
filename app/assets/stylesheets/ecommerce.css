@@ -114,6 +114,13 @@ a {
 
 }
 
+.stock-report-section .stock-btn{
+    background-color:rgb(244, 244, 244);
+    color: rgb(101, 98, 98);
+    font-size: 15px;
+    padding: 10px 20px;
+}
+
 #stock-report .out-status{
     background-color: rgb(255,245,248);
     color: rgb(241,65,108);
