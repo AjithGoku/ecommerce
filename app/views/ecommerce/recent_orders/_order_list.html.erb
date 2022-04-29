@@ -1,4 +1,5 @@
     <div class="tab-content" id="dash-recent-orders-list">
+        <% unless @orderItems.empty? %>
         <div class="tab-pane fade active show" id="kt_stats_widget_2_tab_1">
             <div class="table-responsive">
                 <table class="table table-row-dashed align-middle gs-0 gy-4 my-0">
@@ -12,70 +13,38 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <% @orderItems.each do |orderItem| %>
                         <tr>
                             <td>
-                                <img src="https://preview.keenthemes.com/metronic8/demo8/assets/media/stock/ecommerce/210.gif"
-                                    class="w-50px ms-n1" alt="" />
+                                <img id="product_pic" src="<%= orderItem.product.image_url %>" class="w-50px ms-n1"
+                                    alt="" />
                             </td>
                             <td class="ps-0">
-                                <a href="https://preview.keenthemes.com/metronic8/demo8/../demo8/apps/ecommerce/catalog/edit-product.html"
-                                    class="text-gray-800 fw-bolder text-hover-primary mb-1 fs-6 text-start pe-0">Elephant
-                                    1802</a>
-                                <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">Item: #XDG-2347</span>
+                                <a href="<%= product_path(orderItem.product) %>"
+                                    class="text-gray-800 fw-bolder text-hover-primary mb-1 fs-6 text-start pe-0"
+                                    id="product_name"> <%= orderItem.product.name %> </a>
+                                <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0" id="order_id">Item:
+                                    #<%= orderItem.order.id %></span>
                             </td>
                             <td>
-                                <span class="text-gray-800 fw-bolder d-block fs-6 ps-0 text-end">x1</span>
+                                <span class="text-gray-800 fw-bolder d-block fs-6 ps-0 text-end"
+                                    id="quantity"><%= orderItem.quantity %></span>
                             </td>
                             <td class="text-end pe-0">
-                                <span class="text-gray-800 fw-bolder d-block fs-6">$72.00</span>
+                                <span class="text-gray-800 fw-bolder d-block fs-6"
+                                    id="price">₹<%= orderItem.actual_price %></span>
                             </td>
                             <td class="text-end pe-0">
-                                <span class="text-gray-800 fw-bolder d-block fs-6">$126.00</span>
+                                <span class="text-gray-800 fw-bolder d-block fs-6"
+                                    id="total_price">₹<%= orderItem.final_price %></span>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <img src="https://preview.keenthemes.com/metronic8/demo8/assets/media/stock/ecommerce/215.gif"
-                                    class="w-50px ms-n1" alt="" />
-                            </td>
-                            <td class="ps-0">
-                                <a href="https://preview.keenthemes.com/metronic8/demo8/../demo8/apps/ecommerce/catalog/edit-product.html"
-                                    class="text-gray-800 fw-bolder text-hover-primary mb-1 fs-6 text-start pe-0">Red
-                                    Laga</a>
-                                <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">Item: #XDG-1321</span>
-                            </td>
-                            <td>
-                                <span class="text-gray-800 fw-bolder d-block fs-6 ps-0 text-end">x2</span>
-                            </td>
-                            <td class="text-end pe-0">
-                                <span class="text-gray-800 fw-bolder d-block fs-6">$45.00</span>
-                            </td>
-                            <td class="text-end pe-0">
-                                <span class="text-gray-800 fw-bolder d-block fs-6">$76.00</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="https://preview.keenthemes.com/metronic8/demo8/assets/media/stock/ecommerce/209.gif"
-                                    class="w-50px ms-n1" alt="" />
-                            </td>
-                            <td class="ps-0">
-                                <a href="https://preview.keenthemes.com/metronic8/demo8/../demo8/apps/ecommerce/catalog/edit-product.html"
-                                    class="text-gray-800 fw-bolder text-hover-primary mb-1 fs-6 text-start pe-0">RiseUP</a>
-                                <span class="text-gray-400 fw-bold fs-7 d-block text-start ps-0">Item: #XDG-4312</span>
-                            </td>
-                            <td>
-                                <span class="text-gray-800 fw-bolder d-block fs-6 ps-0 text-end">x3</span>
-                            </td>
-                            <td class="text-end pe-0">
-                                <span class="text-gray-800 fw-bolder d-block fs-6">$84.00</span>
-                            </td>
-                            <td class="text-end pe-0">
-                                <span class="text-gray-800 fw-bolder d-block fs-6">$168.00</span>
-                            </td>
-                        </tr>
+                        <% end %>
                     </tbody>
                 </table>
             </div>
         </div>
+        <% else %>
+        <p>No orders to list</p>
+        <% end %>
     </div>

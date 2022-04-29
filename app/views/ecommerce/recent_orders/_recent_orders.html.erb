@@ -1,16 +1,17 @@
 <div id="dash-recent-orders" class="card-body pt-2">
-    <ul class="nav nav-pills nav-pills-custom mb-3" id="massajith">
+    <ul class="nav nav-pills nav-pills-custom mb-3" id="category_list">
         <% @product_categories.each do |category| %>
         <li class="nav-item mb-3 me-3 me-lg-6">
             <a class="nav-link d-flex justify-content-between flex-column flex-center overflow-hidden w-80px h-85px py-4"
-                data-bs-toggle="pill" href="#kt_stats_widget_2_tab_1">
+                data-bs-toggle="pill">
                 <div class="nav-icon">
                     <img alt=""
                         src="https://preview.keenthemes.com/metronic8/demo8/assets/media/svg/products-categories/gaming.svg"
                         class="" />
                 </div>
-                <span class="nav-text text-gray-700 fw-bolder fs-6 lh-1"><%= category.name %></span>
-                <span id="category_span" style="visibility: hidden"
+                <span id="category_span_name"
+                    class="nav-text text-gray-700 fw-bolder fs-6 lh-1"><%= category.name %></span>
+                <span id="category_span_id" style="display: none;"
                     class="nav-text text-gray-700 fw-bolder fs-6 lh-1"><%= category.id %></span>
                 <span class="bullet-custom position-absolute bottom-0 w-100 h-4px bg-primary"></span>
             </a>
@@ -19,30 +20,23 @@
     </ul>
     <script>
         $(document).ready(function () {
-            $("a.nav-link").click(function (event) {
+            $("#category_list li").click(function (event) {
+                event.preventDefault();
                 console.log("\n event: " + JSON.stringify(event))
-                console.log("I am here")
-                console.log($('#category_span').text())
-                //   alert('Hooray!');
+                console.log($(this).find('#category_span_name').text())
+                console.log($(this).find('#category_span_id').text())
                 $.ajax({
                     type: "GET",
                     url: "ecommerce/orderlist",
-                    dataType: "json",
                     data: {
-                        category_id: $('#category_span').text()
+                        category_id: $(this).find('#category_span_id').text()
                     },
                     success: function (result) {
                         $(document).find("#dash-recent-orders-list").remove();
-                        $(document).find('#dash-recent-orders')
-                            .append(
-                                `<%= render "ecommerce/recent_orders/order_list", locals: "ajith" %>`
-                            );
-                        console.log("result: " + JSON.stringify(result))
+                        $(document).find('#dash-recent-orders').append(result);
                     }
                 })
-                event.preventDefault(); // Prevent link from following its href
             });
         });
     </script>
-    <!-- <%= render 'ecommerce/recent_orders/order_list', locals: { category_id: @product_categories[0] } %> -->
 </div>

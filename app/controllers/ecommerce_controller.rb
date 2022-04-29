@@ -1,43 +1,24 @@
 class EcommerceController < ApplicationController
 
     def index
-        @product_categories=ProductCategory.all
-        p "product_categories"
-        p @product_categories
-        @product_categories.each do |pc|
-        p "pc"
-        p pc.name
-        end
-        @orders=Order.all
-        p "orders"
-        p @orders
-        @orders.each do |order|
-        p "Single order"
-        p order.id
-        end
-        p "master params"
-        p params
+        @product_categories=ProductCategory.all.limit(4);
     end
 
     def orderlist
-        p "params"
-        p params
-        @product = Product.find(params[:category_id])
-        p "@product"
-        p @product
-        # @readings = OrderItem.all
-        @readings = OrderItem.all.joins(:product).where(:products => { :product_category_id => params[:category_id] })
-        p "@readings"
-        p @readings
-        @readings.each do |item|
+        @orderItems = OrderItem.all.joins(:product).where(:products => { :product_category_id => params[:category_id] }).limit(4)
+        p "@orderItems"
+        p @orderItems
+        @orderItems.each do |item|
             p "item"
             p item
             p item.product
             p item.order
             p item.order.orderstatus
+            p item.order.orderstatus
         end
-        # p @readings[products]
-
+        respond_to do |format|
+            format.js { render :partial => "ecommerce/recent_orders/order_list" }
+        end
     end
 
 end
