@@ -20,20 +20,44 @@
     </ul>
     <script>
         $(document).ready(function () {
+            //Make the firt category as active
+            $("#category_list li a").first().addClass('active')
+            //Make the ajax call for the first selected category by getting innerHtml value
+            if ($("#category_list li").first() && $("#category_list li").first().find('#category_span_id')
+                .text()) {
+                $.ajax({
+                    method: "GET",
+                    url: "ecommerce/orderlist",
+                    dataType: "html",
+                    data: {
+                        category_id: $("#category_list li").first().find('#category_span_id').text()
+                    },
+                    success: function (result) {
+                        if ($(document).find("#dash-recent-orders-list")) {
+                            $(document).find("#dash-recent-orders-list").remove();
+                            $(document).find('#dash-recent-orders').append(result);
+                        }
+                    }
+                })
+            }
+            //Register the on-click event for the category list
             $("#category_list li").click(function (event) {
                 event.preventDefault();
                 console.log("\n event: " + JSON.stringify(event))
                 console.log($(this).find('#category_span_name').text())
                 console.log($(this).find('#category_span_id').text())
                 $.ajax({
-                    type: "GET",
+                    method: "GET",
+                    dataType: "html",
                     url: "ecommerce/orderlist",
                     data: {
                         category_id: $(this).find('#category_span_id').text()
                     },
                     success: function (result) {
-                        $(document).find("#dash-recent-orders-list").remove();
-                        $(document).find('#dash-recent-orders').append(result);
+                        if ($(document).find("#dash-recent-orders-list")) {
+                            $(document).find("#dash-recent-orders-list").remove();
+                            $(document).find('#dash-recent-orders').append(result);
+                        }
                     }
                 })
             });
