@@ -101,7 +101,7 @@
                     </h3>
                     <div class="card-toolbar">
                         <div class="text-gray-400 me-2">Category</div>
-                            <select class="category-select">
+                            <select id="category-select">
                                 <option selected>Show All</option>
                                 <% @product_categories.each do |category|%>
                                 <option value=<%= category.id%>> <%= category.name%></option>
@@ -109,7 +109,7 @@
                             </select>
                             <div class="text-gray-400 me-2">Status</div>
 
-                            <select>
+                            <select id="stockstatus-select">
                                 <option selected>Show All</option>
                                 <% @stock_status.each do |status|%>
                                 <option value=<%= status.id%>> <%= status.status%></option>
@@ -120,8 +120,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <%= render 'ecommerce/stock_report' %>
+                    <div class="card-body" id="list_products">
+                        <%= render 'ecommerce/product_list' %>
                     </div>
                 </div>
             </div>

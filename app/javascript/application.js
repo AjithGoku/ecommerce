@@ -6,7 +6,41 @@ import "chartkick"
 import "Chart.bundle"
 
 $(document).ready(function () {
-    $('category-select').on('change', function () {
-        alert(this.value);
+    $("#table-search").on("keyup", function (e) {
+    });
+
+    $('#category-select').on('change', function (event) {
+        $.ajax({
+            type: "GET",
+            url: "ecommerce/product_based_on_category",
+            data: {
+                category_id: this.value
+            },
+            success: function (result) {
+
+                $(document).find("#stock-report").remove();
+
+                $(document).find('#list_products').append(result);
+            }
+        })
+        event.preventDefault(); // Prevent link from following its href
+    });
+    $('#stockstatus-select').on('change', function (event) {
+        $.ajax({
+            type: "GET",
+            url: "ecommerce/product_based_on_stockstatus",
+
+            data: {
+                status_id: this.value
+            },
+            success: function (result) {
+
+                $(document).find("#stock-report").remove();
+
+                $(document).find('#list_products').append(result);
+
+            }
+        })
+        event.preventDefault(); // Prevent link from following its href
     });
 });
