@@ -1,3 +1,18 @@
-<div>
-    text
+<div id="saleschart">
+	<div class="card card-flush h-md-50 mb-xl-10">
+		<div class="container" align="left">
+			<div class="card-title d-flex flex-column">
+				<div class="d-flex align-items-center">
+                    <span class="text-gray-400 mt-1 fw-bold fs-6">$</span>
+                    <h2><%= number_with_delimiter(@totalprice.to_s().gsub(".", "").to_i()/10)   %></h2> &nbsp
+				</div>
+				<span class="text-gray-400 mt-1 fw-bold fs-6">Another $<%= number_with_delimiter(@sales_difference.to_s().gsub(".", "").to_i()/10) %> to Goal</span>							
+			</div>										
+		</div>
+		<div class="card-body d-flex align-items-end pt-0">		
+			<div class="d-flex align-items-center flex-column mt-3 w-100" style="height:315px">
+                <%= area_chart @data, points: false, colors: ["#98FB98"], prefix: "$" %>
+			</div>								
+		</div>								
+	</div>
 </div>

@@ -7,3 +7,134 @@
     padding: 1.25rem 1.25rem;
 
 }
+
+a {
+    color: #000;
+    text-decoration-line: none;
+  }
+
+
+  .stock-report-section  .card-header .card-title.flex-column {
+    align-items: flex-start;
+    justify-content: center;
+}
+
+
+.stock-report-section  .card-header .card-title, .card .card-header .card-title .card-label {
+    font-weight: 500;
+    font-size: 1.275rem;
+    color: #181C32;
+}
+.stock-report-section .card-header .card-title {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem;
+    margin-left: 0;
+}
+.stock-report-section .align-items-start {
+    align-items: flex-start !important;
+}
+.stock-report-section .flex-column {
+    flex-direction: column !important;
+}
+
+.text-gray-400 {
+    color: #B5B5C3 !important;
+}
+.stock-report-section .fw-bold {
+    font-weight: 500 !important;
+}
+.stock-report-section .fs-6 {
+    font-size: 1.075rem !important;
+}
+.stock-report-section.card-flush > .card-header {
+    border-bottom: 0;
+}
+.stock-report-section .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+    min-height: 70px;
+    padding: 0 2.25rem;
+    background-color: transparent;
+    border-bottom: 1px solid #EFF2F5;
+}
+.stock-report-section .card-header:first-child {
+    border-radius: calc(0.625rem - 1px) calc(0.625rem - 1px) 0 0;
+}
+
+.stock-report-section .card-header .card-toolbar {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+    flex-wrap: wrap;
+}
+
+
+.stock-report-section .my-1 {
+    margin-top: 0.25rem !important;
+    margin-bottom: 0.25rem !important;
+}
+.stock-report-section .position-relative {
+    position: relative !important;
+}
+.stock-report-section .svg-icon {
+    line-height: 1;
+    color: #A1A5B7;
+}
+.stock-report-section .ms-4 {
+    margin-left: 1rem !important;
+}
+.stock-report-section .translate-middle-y {
+    transform: translateY(-50%) !important;
+}
+.stock-report-section .top-50 {
+    top: 50% !important;
+}
+.stock-report-section .position-absolute {
+    position: absolute !important;
+}
+.stock-report-section .svg-icon.svg-icon-2 svg {
+    height: 1.5rem !important;
+    width: 1.5rem !important;
+}
+.stock-report-section .form-control {
+    box-shadow: none !important;
+}
+
+.stock-report-section .ps-12 {
+    padding-left: 3rem !important;
+}
+.stock-report-section .w-150px {
+    width: 150px !important;
+}
+.stock-report-section select,.stock-report-section select:focus-visible{
+    border: none;
+
+}
+
+.stock-report-section .stock-btn{
+    background-color:rgb(244, 244, 244);
+    color: rgb(101, 98, 98);
+    font-size: 15px;
+    padding: 10px 20px;
+}
+
+#stock-report .out-status{
+    background-color: rgb(255,245,248);
+    color: rgb(241,65,108);
+    
+}
+
+#stock-report .low-status{
+    background-color: rgb(247, 247, 238);
+    color: rgb(232, 217, 52);
+    
+}
+
+#stock-report .in-status{
+    background-color: rgb(241,250,255);
+    color: rgb(0,158,247);
+    
+}

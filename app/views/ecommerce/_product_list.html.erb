@@ -1,0 +1,42 @@
+<div id="stock-report">
+    <table class="table align-middle table-row-dashed">
+        <thead>
+            <tr class="text-start text-gray-400 fw-bolder fs-7 gs-0">
+                <th rowspan="1" colspan="1" style="width: 100px;">Item</th>
+                <th rowspan="1" colspan="1" style="width: 100px;">Product ID
+                </th>
+                <th rowspan="1" colspan="1" style="width: 125px;">Date Added
+                </th>
+                <th rowspan="1" colspan="1" style="width: 100px;">Price
+                </th>
+                <th rowspan="1" colspan="1" style="width: 93.125px;">Status
+                </th>
+                <th rowspan="1" colspan="1" style="width: 25px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% unless @p.empty? %>
+                <% @p.each do |p| %>
+                    <tr>
+                        <td><strong><%= link_to p.name, product_path(p) %><strong></td>
+                        <td><%= p.id %></td>
+
+                        <td><%=  Date.parse(p.created_at.to_s).strftime("%e %b, %Y") %></td>
+                        <td>$<%=  number_with_delimiter(p.price.to_s().gsub(".", "").to_i()/10) %></td>
+                        <td>
+                            <% if p.stock_status.status.eql?("Out of stock") %>
+                                <span class="order-status-card col-md-3 out-status"><%= p.stock_status.status %></span>
+                            <% end %>
+                            <% if p.stock_status.status.eql?("Low stock") %>
+                                <span class="order-status-card col-md-3 low-status"><%= p.stock_status.status %></span>
+                            <% end %>
+                            <% if p.stock_status.status.eql?("In stock") %>
+                                <span class="order-status-card col-md-3 in-status"><%= p.stock_status.status %></span>
+                            <% end %>
+                        </td>
+                    </tr>
+                    <% end %>
+                <% end %>
+        </tbody>
+    </table>
+</div> 
