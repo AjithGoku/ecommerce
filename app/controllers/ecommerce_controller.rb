@@ -5,7 +5,7 @@ class EcommerceController < ApplicationController
     end
 
     def orderlist
-        @orderItems = OrderItem.all.joins(:product).where(:products => { :product_category_id => params[:category_id] }).limit(4)
+        @orderItems = OrderItem.all.joins(:product).where(:products => { :product_category_id => params[:category_id] }).order("created_at DESC").limit(4)
         p "@orderItems"
         p @orderItems
         @orderItems.each do |item|
