@@ -33,7 +33,6 @@
                         <div class="card-body">
                             <h5 class="card-title">New Customers this month</h5>
                             <%= render 'ecommerce/new_customer' %>
-                            
                         </div>
                     </div>
                 </div>
@@ -44,7 +43,6 @@
                 <div class="card-body">
                     <h5 class="card-title">Sales this month</h5>
                     <%= render 'ecommerce/sales_chart' %>
-
                 </div>
             </div>
         </div>
@@ -76,11 +74,50 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-8">
+        <div class="col-sm-8 product-orders-section">
             <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Product orders</h5>
-                    <%= render 'ecommerce/product_orders' %>
+                <div class="card-header bg-white pt-3">
+                    <h3 class="card-title align-items-start flex-column">
+                        <span class="card-labeltext-gray-500">Product Orders</span>
+                        <span class="text-gray-400 mt-1 fw-bold fs-6">Avg. 57 orders per day</span>
+                    </h3>
+                    <div class="card-toolbar">
+                        <div class="text-gray-400 me-2">Cateogry</div>
+                        <select id="category-select">
+                            <option selected>Show All</option>
+                            <% @product_categories.each do |category|%>
+                                <option value=<%=category.id%>> <%= category.name%>
+                                </option>
+                                <%end%>
+                        </select>
+                        <div class="text-gray-400 me-2">Status</div>
+
+                        <select id="orderstatus-select">
+                            <option selected>Show All</option>
+                            <% @order_status.each do |status|%>
+                                <option value=<%=status.id%>> <%= status.order_status%>
+                                </option>
+                                <%end%>
+                        </select>
+                        <div class="position-relative my-1">
+                            <span class="svg-icon svg-icon-2 position-absolute top-50 translate-middle-y ms-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none">
+                                    <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
+                                        transform="rotate(45 17.0365 15.1223)" fill="currentColor">
+                                    </rect>
+                                    <path
+                                        d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+                                        fill="currentColor"></path>
+                                </svg>
+                            </span>
+                            <input type="text" data-kt-table-widget-4="search" class="form-control w-150px fs-7 ps-12"
+                                placeholder="Search" id="table-search" />
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body" id="list_product_orders">
+                    <%= render 'ecommerce/product_order_list' %>
                 </div>
             </div>
         </div>
@@ -89,8 +126,9 @@
         <div class="col-sm-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Product Delivery</h5>
-                        <%= render 'ecommerce/product_delivery' %>
+                    <h5 class="card-title mb-0">Product Delivery</h5>
+                    <h6 style="color: rgb(186, 181, 195)">1M Products Shipped so far</h6>
+                    <%= render 'ecommerce/product_delivery' %>
                 </div>
             </div>
         </div>
