@@ -83,19 +83,21 @@
                     </h3>
                     <div class="card-toolbar">
                         <div class="text-gray-400 me-2">Cateogry</div>
-                        <select class="category-select">
+                        <select id="category-select">
                             <option selected>Show All</option>
                             <% @product_categories.each do |category|%>
-                            <option value=<%= category.id%>> <%= category.name%></option>
-                            <%end%>
+                                <option value=<%=category.id%>> <%= category.name%>
+                                </option>
+                                <%end%>
                         </select>
                         <div class="text-gray-400 me-2">Status</div>
 
-                        <select>
+                        <select id="orderstatus-select">
                             <option selected>Show All</option>
-                            <% @stock_status.each do |status|%>
-                            <option value=<%= status.id%>> <%= status.status%></option>
-                            <%end%>
+                            <% @order_status.each do |status|%>
+                                <option value=<%=status.id%>> <%= status.order_status%>
+                                </option>
+                                <%end%>
                         </select>
                         <div class="position-relative my-1">
                             <span class="svg-icon svg-icon-2 position-absolute top-50 translate-middle-y ms-4">
@@ -110,12 +112,12 @@
                                 </svg>
                             </span>
                             <input type="text" data-kt-table-widget-4="search" class="form-control w-150px fs-7 ps-12"
-                                placeholder="Search" />
+                                placeholder="Search" id="table-search" />
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
-                    <%= render 'ecommerce/product_orders' %>
+                <div class="card-body" id="list_product_orders">
+                    <%= render 'ecommerce/product_order_list' %>
                 </div>
             </div>
         </div>

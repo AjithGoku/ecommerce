@@ -19,6 +19,10 @@
     margin: 18px 0px;
 
   }
+  #product-delivery .card{
+    border: none;
+
+}
   #product-delivery .card-body{
     padding: 1rem 0rem;
 
