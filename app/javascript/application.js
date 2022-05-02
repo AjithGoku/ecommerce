@@ -9,7 +9,7 @@ $(document).ready(function () {
     $("#table-search").on("keyup", function (e) {
     });
 
-    $('#category-select').on('change', function (event) {
+    $('#categoryy-select').on('change', function (event) {
         $.ajax({
             type: "GET",
             url: "ecommerce/product_based_on_category",
